@@ -1,0 +1,198 @@
+<div class="container-fluid">
+  {{#if messages.success}}
+    <div role="alert" class="alert alert-success">
+      {{#each messages.success}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#if messages.error}}
+    <div role="alert" class="alert alert-danger">
+      {{#each messages.error}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#if messages.info}}
+    <div role="alert" class="alert alert-info">
+      {{#each messages.info}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  <!-- Don't Touch Above! -->
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+      <div class="panel">
+        <!-- <div class="panel-body"> -->
+          <!-- <h3>xindex</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui.</p>
+          <a href="#" role="button" class="btn btn-default">View details</a> -->
+          <div class="panel-body">
+                     <h4>Options</h4>
+                    <form role="form" action="/nba" method="post">
+                      <label for="contract">Contract Amount</label>
+                        <div class="form-group">
+
+                           <input type="text" name="contract" id="contract" value="10000000" placeholder="10000000" class="selectpicker">
+                        </div>
+                        <label for="years">Years</label>
+                        <div class="form-group">
+
+                           <select name="years" id="years" class="selectpicker">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option selected="selected" value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                        </div>
+                        <!-- <label for="filing">Filing Status</label>
+                        <div class="form-group">
+
+                           <select name="filing" id="filing" class="selectpicker">
+                             <option value="Single">Single</option>
+                             <option value="Couple">Couple</option></select>
+                        </div> -->
+                        <label for="team1">Offer From</label>
+                        <div class="form-group">
+                          <select name="team1" id="team1" class="selectpicker">
+                          {{#ifeq user.role 'demo'}}
+                             <option value="Charlotte Hornets" {{#ifeq params.team1 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                             <option value="Orlando Magic" {{#ifeq params.team1 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                             <option value="Sacramento Kings" {{#ifeq params.team1 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                           {{/ifeq}}
+                           {{#ifeq user.role 'paid'}}
+                             <option value="Atlanta Hawks" {{#ifeq params.team1 'Atlanta Hawks'}}selected{{/ifeq}}>Atlanta Hawks</option>
+                              <option value="Boston Celtics" {{#ifeq params.team1 'Boston Celtics'}}selected{{/ifeq}}>Boston Celtics</option>
+                              <option value="Brooklyn Nets" {{#ifeq params.team1 'Brooklyn Nets'}}selected{{/ifeq}}>Brooklyn Nets</option>
+                              <option value="Charlotte Hornets" {{#ifeq params.team1 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                              <option value="Chicago Bulls" {{#ifeq params.team1 'Chicago Bulls'}}selected{{/ifeq}}>Chicago Bulls</option>
+                              <option value="Cleveland Cavaliers" {{#ifeq params.team1 'Cleveland Cavaliers'}}selected{{/ifeq}}>Cleveland Cavaliers</option>
+                              <option value="Dallas Mavericks" {{#ifeq params.team1 'Dallas Mavericks'}}selected{{/ifeq}}>Dallas Mavericks</option>
+                              <option value="Denver Nuggets" {{#ifeq params.team1 'Denver Nuggets'}}selected{{/ifeq}}>Denver Nuggets</option>
+                              <option value="Detroit Pistons" {{#ifeq params.team1 'Detroit Pistons'}}selected{{/ifeq}}>Detroit Pistons</option>
+                              <option value="Golden State Warriors" {{#ifeq params.team1 'Golden State Warriors'}}selected{{/ifeq}}>Golden State Warriors</option>
+                              <option value="Houston Rockets" {{#ifeq params.team1 'Houston Rockets'}}selected{{/ifeq}}>Houston Rockets</option>
+                              <option value="Indiana Pacers" {{#ifeq params.team1 'Indiana Pacers'}}selected{{/ifeq}}>Indiana Pacers</option>
+                              <option value="Los Angeles Clippers" {{#ifeq params.team1 'Los Angeles Clippers'}}selected{{/ifeq}}>Los Angeles Clippers</option>
+                              <option value="Los Angeles Lakers" {{#ifeq params.team1 'Los Angeles Lakers'}}selected{{/ifeq}}>Los Angeles Lakers</option>
+                              <option value="Memphis Grizzlies" {{#ifeq params.team1 'Memphis Grizzlies'}}selected{{/ifeq}}>Memphis Grizzlies</option>
+                              <option value="Miami Heat" {{#ifeq params.team1 'Miami Heat'}}selected{{/ifeq}}>Miami Heat</option>
+                              <option value="Milwaukee Bucks" {{#ifeq params.team1 'Milwaukee Bucks'}}selected{{/ifeq}}>Milwaukee Bucks</option>
+                              <option value="Minnesota Timberwolves" {{#ifeq params.team1 'Minnesota Timberwolves'}}selected{{/ifeq}}>Minnesota Timberwolves</option>
+                              <option value="New Orleans Hornets" {{#ifeq params.team1 'New Orleans Hornets'}}selected{{/ifeq}}>New Orleans Hornets</option>
+                              <option value="New York Knicks" {{#ifeq params.team1 'New York Knicks'}}selected{{/ifeq}}>New York Knicks</option>
+                              <option value="Oklahoma City Thunder" {{#ifeq params.team1 'Oklahoma City Thunder'}}selected{{/ifeq}}>Oklahoma City Thunder</option>
+                              <option value="Orlando Magic" {{#ifeq params.team1 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                              <option value="Philadelphia Sixers" {{#ifeq params.team1 'Philadelphia Sixers'}}selected{{/ifeq}}>Philadelphia Sixers</option>
+                              <option value="Phoenix Suns" {{#ifeq params.team1 'Phoenix Suns'}}selected{{/ifeq}}>Phoenix Suns</option>
+                              <option value="Portland Trail Blazers" {{#ifeq params.team1 'Portland Trail Blazers'}}selected{{/ifeq}}>Portland Trail Blazers</option>
+                              <option value="Sacramento Kings" {{#ifeq params.team1 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                              <option value="San Antonio Spurs" {{#ifeq params.team1 'San Antonio Spurs'}}selected{{/ifeq}}>San Antonio Spurs</option>
+                              <option value="Toronto Raptors" {{#ifeq params.team1 'Toronto Raptors'}}selected{{/ifeq}}>Toronto Raptors</option>
+                              <option value="Utah Jazz" {{#ifeq params.team1 'Utah Jazz'}}selected{{/ifeq}}>Utah Jazz</option>
+                              <option value="Washington Wizards" {{#ifeq params.team1 'Washington Wizards'}}selected{{/ifeq}}>Washington Wizards</option>
+                           {{/ifeq}}
+                            </select>
+                        </div>
+                        <label for="team2">Competing Offer(s) For</label>
+                        <div class="form-group">
+                           <!-- <select name="team2[]" id="team2"  class="selectpicker" multiple> -->
+                             <select name="team2" id="team2" class="selectpicker">
+                           {{#ifeq user.role 'demo'}}
+                              <option value="Charlotte Hornets" {{#ifeq params.team2  'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                              <option value="Orlando Magic" {{#ifeq params.team2  'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                              <option value="Sacramento Kings" {{#ifeq params.team2  'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                            {{/ifeq}}
+                            {{#ifeq user.role 'paid'}}
+                              <option value="Atlanta Hawks" {{#ifeq params.team2  'Atlanta Hawks'}}selected{{/ifeq}}>Atlanta Hawks</option>
+                               <option value="Boston Celtics" {{#ifeq params.team2  'Boston Celtics'}}selected{{/ifeq}}>Boston Celtics</option>
+                               <option value="Brooklyn Nets" {{#ifeq params.team2  'Brooklyn Nets'}}selected{{/ifeq}}>Brooklyn Nets</option>
+                               <option value="Charlotte Hornets" {{#ifeq params.team2  'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                               <option value="Chicago Bulls" {{#ifeq params.team2  'Chicago Bulls'}}selected{{/ifeq}}>Chicago Bulls</option>
+                               <option value="Cleveland Cavaliers" {{#ifeq params.team2  'Cleveland Cavaliers'}}selected{{/ifeq}}>Cleveland Cavaliers</option>
+                               <option value="Dallas Mavericks" {{#ifeq params.team2  'Dallas Mavericks'}}selected{{/ifeq}}>Dallas Mavericks</option>
+                               <option value="Denver Nuggets" {{#ifeq params.team2  'Denver Nuggets'}}selected{{/ifeq}}>Denver Nuggets</option>
+                               <option value="Detroit Pistons" {{#ifeq params.team2  'Detroit Pistons'}}selected{{/ifeq}}>Detroit Pistons</option>
+                               <option value="Golden State Warriors" {{#ifeq params.team2  'Golden State Warriors'}}selected{{/ifeq}}>Golden State Warriors</option>
+                               <option value="Houston Rockets" {{#ifeq params.team2  'Houston Rockets'}}selected{{/ifeq}}>Houston Rockets</option>
+                               <option value="Indiana Pacers" {{#ifeq params.team2  'Indiana Pacers'}}selected{{/ifeq}}>Indiana Pacers</option>
+                               <option value="Los Angeles Clippers" {{#ifeq params.team2  'Los Angeles Clippers'}}selected{{/ifeq}}>Los Angeles Clippers</option>
+                               <option value="Los Angeles Lakers" {{#ifeq params.team2  'Los Angeles Lakers'}}selected{{/ifeq}}>Los Angeles Lakers</option>
+                               <option value="Memphis Grizzlies" {{#ifeq params.team2  'Memphis Grizzlies'}}selected{{/ifeq}}>Memphis Grizzlies</option>
+                               <option value="Miami Heat" {{#ifeq params.team2  'Miami Heat'}}selected{{/ifeq}}>Miami Heat</option>
+                               <option value="Milwaukee Bucks" {{#ifeq params.team2  'Milwaukee Bucks'}}selected{{/ifeq}}>Milwaukee Bucks</option>
+                               <option value="Minnesota Timberwolves" {{#ifeq params.team2  'Minnesota Timberwolves'}}selected{{/ifeq}}>Minnesota Timberwolves</option>
+                               <option value="New Orleans Hornets" {{#ifeq params.team2  'New Orleans Hornets'}}selected{{/ifeq}}>New Orleans Hornets</option>
+                               <option value="New York Knicks" {{#ifeq params.team2  'New York Knicks'}}selected{{/ifeq}}>New York Knicks</option>
+                               <option value="Oklahoma City Thunder" {{#ifeq params.team2  'Oklahoma City Thunder'}}selected{{/ifeq}}>Oklahoma City Thunder</option>
+                               <option value="Orlando Magic" {{#ifeq params.team2  'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                               <option value="Philadelphia Sixers" {{#ifeq params.team2  'Philadelphia Sixers'}}selected{{/ifeq}}>Philadelphia Sixers</option>
+                               <option value="Phoenix Suns" {{#ifeq params.team2  'Phoenix Suns'}}selected{{/ifeq}}>Phoenix Suns</option>
+                               <option value="Portland Trail Blazers" {{#ifeq params.team2  'Portland Trail Blazers'}}selected{{/ifeq}}>Portland Trail Blazers</option>
+                               <option value="Sacramento Kings" {{#ifeq params.team2  'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                               <option value="San Antonio Spurs" {{#ifeq params.team2  'San Antonio Spurs'}}selected{{/ifeq}}>San Antonio Spurs</option>
+                               <option value="Toronto Raptors" {{#ifeq params.team2  'Toronto Raptors'}}selected{{/ifeq}}>Toronto Raptors</option>
+                               <option value="Utah Jazz" {{#ifeq params.team2  'Utah Jazz'}}selected{{/ifeq}}>Utah Jazz</option>
+                               <option value="Washington Wizards" {{#ifeq params.team2  'Washington Wizards'}}selected{{/ifeq}}>Washington Wizards</option>
+                            {{/ifeq}}
+                          </select>
+                        </div>
+                        <br>
+                        <h4>Tax Rules</h4>
+                        <label for="taxlaw">Tax Law</label>
+                        <div class="form-group">
+                           <select name="taxlaw" id="taxlaw" class="selectpicker">
+                            <option value="preTrump">Pre-Trump</option>
+                            <option value="postTrump" disabled="disabled">Post-Trump</option>
+                           </select>
+                        </div>
+                        <br>
+                        <h4>Present Value</h4>
+                        <label for="discountrate">Discount Rate</label>
+                        <div class="form-group">
+
+                           <select name="discountrate" id="discountrate" class="selectpicker"><option value="0.0">0.0</option>
+                              <option value="0.01">0.01</option>
+                              <option value="0.02">0.02</option>
+                              <option value="0.03">0.03</option>
+                              <option value="0.04">0.04</option>
+                              <option value="0.05">0.05</option>
+                              <option value="0.06">0.06</option>
+                              <option selected="selected" value="0.07">0.07</option>
+                              <option value="0.08">0.08</option>
+                              <option value="0.09">0.09</option>
+                              <option value="0.1">0.10</option>
+                              <option value="0.11">0.11</option>
+                              <option value="0.12">0.12</option>
+                            </select>
+                        </div>
+                        <div class="clearfix mtop15"></div>
+                        <button class="button btn btn-primary pull-right mtop15" id="submit-button">Submit</button>
+
+                     </form></div>
+
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="panel report">
+            <div class="panel-body">
+              <img src="/img/complete2.png" class="img-responsive" style="margin:0 auto;"/>
+
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

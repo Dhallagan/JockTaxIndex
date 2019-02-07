@@ -1,0 +1,1416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta lang="UTF-8">
+	<title>Page print</title>
+	<!-- <link rel="stylesheet" href="/css/vendor/bootstrap.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="/css/main.css"> -->
+<script src="/js/lib/jquery.js"></script>
+<script src="/js/lib/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+	<link rel="stylesheet" href="css/pdf-style.css">
+	<style type="text/css">
+		/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+	</style>
+</head>
+<body>
+	<div class="page">
+	<div class="page-logo page-break"><img src="" alt=""></div>
+	<div class="page">
+		<section>
+			<br>
+			<br>
+			<div class="title-page">
+				<img src="" alt="">
+				<h1>Jock Tax Index</h1>
+				<h2>Analysis for Gordon Hayward</h2>
+				<br>
+				<h2>AFP Consulting, LLC</h2>
+				<h3>June 12, 2017</h3>
+			</div>
+		</section>
+	</div>
+
+<!--
+First Page with rankings
+-->
+	<!-- <div class="page">
+	<div class="page-logo page-break"><img src="" alt=""></div>
+	<div class="page">
+		<section>
+			<div class="col-lg-9 col-md-9 col-sm-12">
+				<div class="panel">
+						<div class="panel-body">
+							<h2>Tax Analysis<span><p>Gordon Heyward</p></span></h2>
+							<div class="panel_s">
+								 <div class="panel-body">
+										<div class="row">
+											 <div class="col-lg-12">
+
+												 <div class="tab-content summary">
+															 <div class="tab-pane active page-break" id="0" role="tabpanel">
+																			<div class="col-sm-12">
+																				 <div class="row">
+																							 <div class="col-lg-12 ">
+																													<h3 class="bold no-margin">Results</h3>
+
+
+
+																	</div>
+															</div>
+													 </div>
+											 </div>
+											</div>
+									 </div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</section>
+	</div>
+</div> -->
+
+<!--
+All team incomes
+-->
+<div class="page">
+<div class="page-logo page-break"><img src="" alt=""></div>
+<div class="page">
+	<section>
+		<div class="col-lg-9 col-md-9 col-sm-12">
+			<div class="panel">
+					<div class="panel-body">
+						<h2>Analysis</h2>
+						<div class="panel_s">
+							 <div class="panel-body">
+									<div class="row">
+										 <div class="col-lg-12">
+
+											 <div class="tab-content summary">
+												 <div class="col-lg-12">
+														<div class="row">
+																	<h3> Summary </h3>
+
+																	<p>In this scenario, the greatest after-tax value is that of the Miami Heat with a value of
+																		$74,273,412, which is $1,366,451 greater than that of Utah, $4,267,023 more than
+																		Boston, and $10,439,078 more than Los Angeles. Therefore, Boston ($7,941,425),
+																		Utah ($7,998,168), and Los Angeles ($21,306,832) would all need to pay a premium to match
+																		the same net value of Miami’s $74,273,412.  Miami would be able to offer a discount
+																		of $127,892,979 to match Utah’s net value of $72,906,961.  Boston would also be able to
+																		offer a discount at $135,688,300 over four years.</p>
+
+																	<p>Five Year Options<br>
+
+																	To match the same net value of Utah’s fifth year at $39,996,000:
+																		 <ul><li>A player in Boston would need to receive a
+																		fifth year at $45,377,888.</li> <li> A player in Los Angeles would need a salary of $62,362,977. </li><li> A player in Miami would
+																		need a salary of $35,285,731.</li></ul>
+																	</p>
+
+													 <div class="col-sm-12">
+															<div class="row">
+																		<div class="col-lg-12 ">
+
+																			 <div class="col-lg-12">
+																					<div class="row">
+																						<hr>
+																								<h3>Tax Implications by Year and Lifetime of Contract</h3>
+																					<table class="table-gn" width="100%">
+																						<tbody>
+																							 <tr class="table-header">
+																									<th>
+																									</th>
+																									<th>Year 1</th>
+																									<th>Year 2</th>
+																									<th>Year 3</th>
+																									<th>Year 4</th>
+																									<th>Year 5</th>
+																									<th>Total</th>
+																							 </tr>
+																							 <tr><td class="lead">Utah 5</td></tr>
+																							 <tr>
+																								 <td class="indent">Gross</td>
+																								 <td >30,300,000</td>
+																								 <td >32,724,000</td>
+																								 <td >35,148,000</td>
+																								 <td >37,572,000</td>
+																								 <td >39,996,000</td>
+																								 <td >175,740,000</td>
+																							 </tr>
+																							 <tr>
+																								 <td class="indent">Net</td>
+																								 <td>16,273,875</td>
+																								 <td>17,575,785</td>
+																								 <td>18,877,695</td>
+																								 <td>20,179,605</td>
+																								 <td>21,481,515</td>
+																								 <td>94,388,476</td>
+																							 </tr>
+																							 <tr><td class="lead">Utah 4</td></tr>
+																							 <tr>
+																									<td class="indent">Gross</td>
+																									<td>30,300,000</td>
+																									<td>32,724,000</td>
+																									<td>35,148,000</td>
+																									<td>37,572,000</td>
+																									<td></td>
+																									<td>135,744,000</td>
+																							 </tr>
+																							 <tr>
+																									<td class="indent">Net</td>
+																									<td>16,273,875</td>
+ 																								 <td>17,575,785</td>
+ 																								 <td>18,877,695</td>
+ 																								 <td>20,179,605</td>
+																									<td></td>
+																									<td>72,906,961</td>
+																							  <tr>
+																									<td class="lead">Miami</td>
+																								</tr>
+																							 <tr>
+																								 <td class="indent">Gross</td>
+
+																								 <td>30,300,000</td>
+																								 <td>31,815,000</td>
+																								 <td>33,330,000</td>
+																								 <td>34,845,000</td>
+																								 <td></td>
+																								 <td>130,290,000</td>
+																							 </tr>
+																							 <tr>
+																									<td class="indent">Net</td>
+																									<td>17,272,887</td>
+																									<td>18,136,531</td>
+																									<td>19,000,175</td>
+																									<td>19,863,820</td>
+																									<td></td>
+																									<td>74,273,412
+																									</td>
+																							 </tr>
+																							  <tr><td class="lead">Boston</td></tr>
+																							 <tr>
+																								 <td class="indent">Gross</td>
+																								 <td>30,300,000</td>
+																								 <td>31,815,000</td>
+																								 <td>33,330,000</td>
+																								 <td>34,845,000</td>
+																								 <td></td>
+																								 <td>130,290,000</td>
+																							 </tr>
+																							 <tr>
+																								 <td class="indent">Net</td>
+																								 <td>16,280,556</td>
+																								 <td>17,094,583</td>
+																								 <td>17,908,611</td>
+																								 <td>18,722,639</td>
+																								 <td></td>
+																								 <td>70,006,389</td>
+																							 </tr>
+																							 <tr><td class="lead">Los Angeles</td></tr>
+																							 <tr>
+																								 <td class="indent">Gross</td>
+																								 <td>30,300,000</td>
+																								 <td>31,815,000</td>
+																								 <td>33,330,000</td>
+																								 <td>34,845,000</td>
+																								 <td></td>
+																								 <td>130,290,000</td>
+																							 </tr>
+																							 <tr>
+																								 <td class="indent">Net</td>
+																									<td>14,845,194</td>
+																									<td>15,587,454</td>
+																									<td>16,329,713</td>
+																									<td>17,071,973</td>
+																									<td></td>
+																									<td>63,834,334</td>
+																							 </tr>
+																						 </tbody>
+																							</table>
+																					</div>
+																			 </div>
+																		</div>
+																		<!-- <h4> &nbsp</h4> -->
+																		<div class="col-sm-12">
+																			<hr>
+																			 <h3>Scenarios Ranked By Most Net Income Received</h3>
+																			 <p>The following rankings reflect the comparable tax implications based on a Utah 4 year contract of $135,744,000.</p>
+																			<div class="row">
+																				 <div class="col-sm-12">
+																					 <table class="table-rank" width="100%">
+
+																							<tbody>
+																							<tr class="table-header">
+																								<th>Rank</th>
+																								<th>Team</th>
+																								<th>Income</th>
+																								<th>Net Income</th>
+																								<th>Difference</th>
+																								<th>Matched</th>
+
+																							</tr>
+
+																							{{#each ranked}}
+																							<tr>
+																								<td>{{counter @index}}</td>
+																								<td style="text-align:left; padding-left:20px;">{{team}}</td>
+																								<td>{{fnumber income}}</td>
+
+																								<td>{{fnumber netIncome}}</td>
+																								<td style="text-align:right;">{{fCurrency comparison.difference}}</td>
+																								<td style="text-align:right;">{{fCurrency comparison.matchedContract}}</td>
+																							</tr>
+																							{{/each}}
+																						</tbody>
+																					</table>
+																				 </div>
+																			 </div>
+<!-- <h4> &nbsp</h4> -->
+																			 <div class=" col-sm-12">
+																				 <hr>
+																				<div class="panel">
+																						<div class="panel-body">
+																							<!-- <h2>Tax Analysis<span><p>Gordon Heyward</p></span></h2> -->
+																						<h3>Value After Tax</h3>
+																							<div class="panel_s">
+																								 <div class="panel-body">
+																										<div class="row">
+																											 <div class="col-lg-12">
+
+																												 <div class="tab-content summary">
+																															 <div class="tab-pane active page-break" id="0" role="tabpanel">
+																																 {{#each ranked}}
+																																 <div class="chart">
+																																	 <!-- <div class="one" style="width: {{gpct taxRate}};"><span class="team">{{team}}</span><span class="info">${{fnumber netIncome}}</span></div>
+																																	 <div class="two" style="width: {{pct taxRate}};"><span class="info">${{fnumber totalTax}}</span></div> -->
+																																	 <div class="one" style="width: {{gpct payGraph}};"><span class="team">{{#ifeq id 1}}{{team}} - 4{{else}}{{#ifeq id 0}}{{team}} - 5{{else}}{{team}}{{/ifeq}}{{/ifeq}}</span><span class="info">${{fnumber netIncome}}</span></div>
+
+																																 </div>
+																																 {{/each}}
+
+																																													 </tbody>
+																																												 </table>
+																																										 </div>
+																																									</div>
+																																							 </div>
+																																						</div>
+
+
+
+
+
+																																	</div>
+																															</div>
+																													 </div>
+																											 </div>
+																											</div>
+																		</div>
+
+																 </div>
+															 </div>
+
+
+
+											 </div>
+									 </div>
+									</div>
+							 </div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+<!--
+Individual team reports
+-->
+
+{{#each teams}}
+{{#if t1.income}}
+<div class="page">
+<div class="page-logo page-break"><img src="" alt=""></div>
+<div class="page">
+	<section>
+
+
+
+
+		<div class="row">
+			<div class="col-sm-12 ">
+					<h2>{{team}}</h2>
+				 <h4 class="bold no-margin">Summary</h4>
+				 <hr>
+				 <div class="col-sm-12">
+						<div class="row">
+							<p> Given a gross contract of ${{fnumber income}}, a player will make ${{fnumber netIncome}}
+								 if signing with the {{team}} for a {{years}} year contract.
+							</p>
+						</div>
+				 </div>
+			</div>
+		</div>
+
+	 <div class="row">
+			<div class="col-lg-4 col-sm-4 project-overview-column text-analysis__item-4">
+				 <div class="row">
+						<div class="col-lg-12">
+							 <h4 class="bold no-margin">Inputs</h4>
+							 <hr>
+							 <div class="row">
+									<table class="table table-borded no-margin" width="100%">
+										 <tbody>
+												<tr>
+													 <td class="bold">Contract Amount</td>
+													 <td>{{fnumber income}}</td>
+												</tr>
+												<tr>
+													 <td class="bold">Years</td>
+													 <td>{{params.years}}</td>
+												</tr>
+												<tr>
+													 <td class="bold">Offer From</td>
+													 <td>{{team}}</td>
+												</tr>
+												<!-- <tr>
+													 <td class="bold">Competing Offer</td>
+													 <td>{{team}}</td>
+												</tr> -->
+												<!-- <tr>
+													 <td class="bold">Discount Rate</td>
+													 <td>{{params.discountrate}}</td>
+												</tr> -->
+												{{#if params.escrow}}
+												<tr>
+													 <td class="bold">Escrow</td>
+													 <td>{{pct params.escrow}}</td>
+												</tr>
+												{{/if}}
+										 </tbody>
+									</table>
+							 </div>
+						</div>
+				 </div>
+			</div>
+			<div class="col-lg-8 col-sm-8 col-sm-8 text-analysis__item-4">
+				 <h4 class="bold no-margin">Results</h4>
+				 <hr>
+
+						<div class="col-lg-1 col-sm-12 comparison__item" {{#gt t1.netIncome netIncome}}{{else}}style="border: 4px solid #ecf0f1"{{/gt}}>
+
+							 <!--Matched Contract -->
+							 <!--<h3 class="no-margins">-->
+							 <!--   <span class="team2-matchcontract">-->
+							 <!--   $5,362,757-->
+							 <!--   </span>-->
+							 <!--</h3>-->
+							 <table class="table table-borded no-margin table-contract" width="100%">
+									<tbody>
+										 <tr>
+												<td>
+													 Gross
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber income}}
+													 </span></strong></span>
+												</td>
+												<td>
+													 AAV
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber aav}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+										 <tr>
+												<td>
+													 Net
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-aav">
+
+														 ${{fnumber netIncome}}
+													 </span></strong></span>
+												</td>
+												<td>
+													 Net AAV
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber netaav}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+										 <tr>
+												<td>
+													 Tax Rate
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-avgtaxrate">
+														 {{pct taxRate}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+									</tbody>
+							 </table>
+							 <!-- {{#gt netIncome t1.netIncome}} <h4> <i class="fa fa-check fa-3" aria-hidden="true"></i>  Better Net Value</h4>{{else}}{{/gt}} -->
+
+						</div>
+				 </div>
+			<!-- </div> -->
+	 </div>
+
+
+
+	 <div class="row">
+				 <div class="col-lg-12">
+						<div class="row">
+							 <div class="col-sm-6">
+									<h4 class="text-center"><center>Net Income</center></h4>
+							 </div>
+							 <div class="col-sm-6">
+									<h4 class="text-center"><center>Taxes</center></h4>
+							 </div>
+
+							 <div class="chart">
+									<!-- <div class="one" style="width: {{gpct t1.taxRate}};"><span class="team">{{t1.team}}</span><span class="info">${{fnumber t1.netIncome}}</span> </div>
+									<div class="two" style="width: {{pct t1.taxRate}};"><span class="info">${{fnumber t1.federalTax}}</span></div> -->
+									<div class="one" style="width: {{gpct taxRate}};"><span class="team">{{team}}</span><span class="info">${{fnumber netIncome}}</span></div>
+									<div class="two" style="width: {{pct taxRate}};"><span class="info">${{fnumber totalTax}}</span></div>
+							 </div>
+						</div>
+				 </div>
+	 </div>
+	 <h3>&nbsp; </h3>
+	 				<div class="project-overview-column">
+	 {{#ifeq id 0}}
+	 		<div class="row">
+	 			<div class="col-sm-12 ">
+
+	 			 <div class="row">
+	 				 <div class="col-sm-12 ">
+	 					 <div class="row">
+	 								<div class="col-lg-12">
+	 									 <div class="row">
+	 										 <h4 class="bold no-margin">Structure</h4>
+	 										 <hr>
+	 									 <table class="table-gn">
+	 												<tbody>
+	 													 <tr class="table-header">
+	 															<th>
+	 															</th>
+	 															<th>Year 1</th>
+	 															<th>Year 2</th>
+	 															<th>Year 3</th>
+	 															<th>Year 4</th>
+	 															<th>Year 5	</th>
+	 															<th>Total</th>
+	 													 </tr>
+	 													 <tr>
+	 															<td class="lead">Gross</td>
+	 															<td>30,300,000</td>
+	 															<td>32,724,000</td>
+	 															<td>35,148,000</td>
+	 															<td>37,572,000</td>
+	 															<td>39,996,000</td>
+	 															<td>175,740,000</td>
+	 													 </tr>
+	 													 <tr>
+	 														 <td class="lead">Net</td>
+	 															<td>16,273,875</td>
+	 															<td>17,575,785</td>
+	 															<td>18,877,695</td>
+	 															<td>20,179,605</td>
+	 															<td>21,481,515</td>
+	 															<td>94,388,476</td>
+	 													 </tr>
+	 												 </tbody>
+	 											 </table>
+	 									 </div>
+	 								</div>
+	 						 </div>
+	 					 </div>
+	 			 </div>
+
+	 		 </div>
+	 		</div>
+	 		{{/ifeq}}
+	 		{{#ifeq id 1}}
+	 				<div class="row">
+	 					<div class="col-sm-12 ">
+
+	 					 <div class="row">
+	 						 <div class="col-sm-12">
+	 							 <div class="row">
+	 										<div class="col-lg-12">
+	 											 <div class="row">
+	 												 <h4 class="bold no-margin">Structure : Utah 5</h4>
+	 												 <hr>
+	 												 <table class="table-gn">
+	 															<tbody>
+	 																 <tr class="table-header">
+	 																		<th>
+	 																		</th>
+	 																		<th>Year 1</th>
+	 																		<th>Year 2</th>
+	 																		<th>Year 3</th>
+	 																		<th>Year 4</th>
+	 																		<th>Total</th>
+	 																 </tr>
+	 																 <tr>
+	 																		<td class="lead">Gross</td>
+	 																		<td>30,300,000</td>
+	 																		<td>32,724,000</td>
+	 																		<td>35,148,000</td>
+	 																		<td>37,572,000</td>
+	 																		<td>135,744,000</td>
+	 																 </tr>
+	 																 <tr>
+	 																	 <td class="lead">Net</td>
+	 																		<td>16,246,223</td>
+	 																		<td>17,545,921</td>
+	 																		<td>18,845,618</td>
+	 																		<td>20,145,316</td>
+	 																		<td>72,906,961</td>
+	 																 </tr>
+	 																 <!-- <tr>
+	 																	 <td class="lead">Present Value</td>
+	 																		<td >30,300,000
+	 																		</td>
+	 																		<td >31,500,000
+	 																		</td>
+	 																		<td >32,148,000
+	 																		</td>
+	 																		<td >33,572,000
+	 																		</td>
+	 																		<td >34,996,000
+	 																		</td>
+	 																		<td >160,740,000
+	 																		</td>
+	 																 </tr> -->
+	 															 </tbody>
+	 														 </table>
+	 											 </div>
+	 										</div>
+	 								 </div>
+	 							 </div>
+	 					 </div>
+
+	 				 </div>
+	 				</div>
+	 				{{/ifeq}}
+
+	 				{{#ifeq id 2}}
+	 						<div class="row">
+	 							<div class="col-sm-12 ">
+
+	 							 <div class="row">
+	 								 <div class="col-sm-12">
+	 									 <div class="row">
+	 												<div class="col-lg-12">
+	 													 <div class="row">
+	 														 <h4 class="bold no-margin">Structure : Utah 4</h4>
+	 														 <hr>
+	 														 <table class="table-gn" >
+	 	                                <tbody>
+	 	                                  <tr class="table-header">
+	 	                                     <th>
+	 	                                     </th>
+	 	                                     <th>Year 1</th>
+	 	                                     <th>Year 2</th>
+	 	                                     <th>Year 3</th>
+	 	                                     <th>Year 4</th>
+	 	                                     <th>Total</th>
+	 	                                  </tr>
+	 	                                   <tr>
+	 	                                      <td class="lead">Gross</td>
+	 	                                      <td >30,300,000</td>
+	 	                                      <td >31,815,000</td>
+	 	                                      <td >33,330,000</td>
+	 	                                      <td >34,845,000</td>
+	 	                                      <td >130,290,000</td>
+	 	                                   </tr>
+	 	                                   <tr>
+	 	                                     <td class="lead">Net</td>
+	 	                                      <td>17,272,887</td>
+	 	                                      <td>18,136,531</td>
+	 	                                      <td>19,000,175</td>
+	 	                                      <td>19,863,820</td>
+	 	                                      <td>74,273,412</td>
+	 	                                   </tr>
+	 	                                   <!-- <tr>
+	 	                                     <td class="lead">Present Value</td>
+	 	                                      <td>30,300,000
+	 	                                      </td>
+	 	                                      <td >31,500,000
+	 	                                      </td>
+	 	                                      <td >32,148,000
+	 	                                      </td>
+	 	                                      <td >33,572,000
+	 	                                      </td>
+	 	                                      <td >34,996,000
+	 	                                      </td>
+	 	                                      <td >160,740,000
+	 	                                      </td>
+	 	                                   </tr> -->
+	 	                                 </tbody>
+	 	                               </table>
+	 													 </div>
+	 												</div>
+	 										 </div>
+	 									 </div>
+	 							 </div>
+
+	 						 </div>
+	 						</div>
+	 						{{/ifeq}}
+	 						{{#ifeq id 3}}
+	 								<div class="row">
+	 									<div class="col-sm-12 ">
+
+	 									 <div class="row">
+	 										 <div class="col-sm-12">
+	 											 <div class="row">
+	 														<div class="col-lg-12">
+	 															 <div class="row">
+	 																 <h4 class="bold no-margin">Structure</h4>
+	 																 <hr>
+	 																 <table class="table-gn" >
+	 		                                  <tbody>
+	 		                                     <tr class="table-header">
+	 		                                        <th></th>
+	 		                                        <th>Year 1</th>
+	 		                                        <th >Year 2</th>
+	 		                                        <th >Year 3</th>
+	 		                                        <th >Year 4</th>
+	 		                                        <th >Total</th>
+	 		                                     </tr>
+	 		                                     <tr>
+	 		                                        <td class="lead">Gross</td>
+	 		                                        <td >30,300,000</td>
+	 		                                        <td >31,815,000</td>
+	 		                                        <td >33,330,000</td>
+	 		                                        <td >34,845,000</td>
+	 		                                        <td >130,290,000</td>
+	 		                                     </tr>
+	 		                                     <tr>
+	 		                                       <td class="lead">Net</td>
+	 		                                        <td>16,280,556</td>
+	 		                                        <td>17,094,583</td>
+	 		                                        <td>17,908,611</td>
+	 		                                        <td>18,722,639</td>
+	 		                                        <td>70,006,389</td>
+	 		                                     </tr>
+
+	 		                                   </tbody>
+	 		                                 </table>
+	 															 </div>
+	 														</div>
+	 												 </div>
+	 											 </div>
+	 									 </div>
+
+	 								 </div>
+	 								</div>
+	 								{{/ifeq}}
+	 								{{#ifeq id 4}}
+	 										<div class="row">
+	 											<div class="col-sm-12 ">
+
+	 											 <div class="row">
+	 												 <div class="col-sm-12">
+	 													 <div class="row">
+	 																<div class="col-lg-12">
+	 																	 <div class="row">
+	 																		 <h4 class="bold no-margin">Structure</h4>
+	 																		 <hr>
+
+	 																		 <table class="table-gn" >
+	 			                                    <tbody>
+	 			                                       <tr class="table-header">
+	 			                                          <th></th>
+	 			                                          <th>Year 1</th>
+	 			                                          <th>Year 2</th>
+	 			                                          <th>Year 3</th>
+	 			                                          <th>Year 4</th>
+	 			                                          <th>Total</th>
+	 			                                       </tr>
+	 			                                       <tr>
+	 			                                         <td class="lead">Gross</td>
+	 			                                         <td>30,300,000</td>
+ 																								 <td>31,815,000</td>
+ 																								 <td>33,330,000</td>
+ 																								 <td>34,845,000</td>
+																								 <td>130,290,000</td>
+	 			                                       </tr>
+	 			                                       <tr>
+	 			                                        <td class="lead">Net</td>
+	 			                                          <td>14,845,194</td>
+	 			                                          <td>15,587,454</td>
+	 			                                          <td>16,329,713</td>
+	 			                                          <td>17,071,973</td>
+	 			                                          <td>63,834,334</td>
+	 			                                       </tr>
+	 			                                       <!-- <tr>
+	 			                                          <td class="lead">Present Value</td>
+	 			                                          <td>30,300,000
+	 			                                          </td>
+	 			                                          <td>31,500,000
+	 			                                          </td>
+	 			                                          <td>32,148,000
+	 			                                          </td>
+	 			                                          <td>33,572,000
+	 			                                          </td>
+	 			                                          <td>
+	 			                                          </td>
+	 			                                          <td>160,740,000
+	 			                                          </td>
+	 			                                       </tr> -->
+	 			                                     </tbody>
+	 			                                   </table>
+	 																	 </div>
+	 																</div>
+	 														 </div>
+	 													 </div>
+	 											 </div>
+
+	 										 </div>
+	 										</div>
+	 										{{/ifeq}}
+										</div>
+<h3>&nbsp; </h3>
+		<div class="row">
+	 <div class="col-lg-12">
+			<h4 class="bold no-margin">Tax Breakdown</h4>
+			<hr>
+			<table class="table" width="100%">
+					 <tbody>
+							<tr>
+								 <td colspan="2">
+								 </td>
+								 <!-- <th scope="col" style="text-align:right;">
+										<h4>{{t1.team}}</h4>
+								 </th> -->
+								 <th scope="col" style="text-align:right;">
+										<h4>{{team}}</h4>
+								 </th>
+							</tr>
+							<tr>
+								 <td colspan="2">
+										Gross Income
+								 </td>
+
+								 <td align="right">
+										${{fnumber income}}
+								 </td>
+							</tr>
+							<tr>
+								{{#if params.escrow}}
+								<tr>
+									 <td>
+											<spacer height="1" type="block" width="30"></spacer>
+									 </td>
+									 <td>- Escrow </td>
+									 <!-- <td align="right">${{difference params.income "-" t1.income "+" 0}}</td> -->
+									 <td align="right">${{difference params.income "-" income "+" 0}}</td>
+								</tr>
+								{{/if}}
+								 <td>
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Deductions </td>
+								 <!-- <td align="right">${{fnumber t1.deductions}}</td> -->
+								 <td align="right">${{fnumber deductions}}</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									 Taxable Income
+								</td>
+								 <!-- <td align="right">${{fnumber t1.taxableincome}}</td> -->
+								 <td align="right">${{fnumber taxableincome}}</td>
+							</tr>
+							<tr>
+								 <td colspan="5" style="height:0;padding:0; ">
+										<span style="display:block; width:5px; height:10px;">
+										</span>
+								 </td>
+							</tr>
+							<tr>
+								 <td>
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Federal </td>
+								 <!-- <td align="right">${{fnumber t1.federalTax}}</td> -->
+								 <td align="right">${{fnumber federalTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- State</td>
+								 <!-- <td align="right">${{fnumber t1.stateTax}}</td> -->
+								 <td align="right">${{fnumber stateTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- City</td>
+								 <!-- <td align="right">${{fnumber t1.cityTax}}</td> -->
+								 <td align="right">${{fnumber cityTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Medicare</td>
+								 <!-- <td align="right">${{fnumber t1.medicare}}</td> -->
+								 <td align="right">${{fnumber medicare}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td style="border-bottom:1pt solid black;">-Social Security</td>
+								 <!-- <td style="border-bottom:1pt solid black;" align="right">${{fnumber t1.socialSecurity}}</td> -->
+								 <td style="border-bottom:1pt solid black;" align="right">${{fnumber socialSecurity}}</td>
+							</tr>
+							<tr>
+								 <td colspan="2">
+										Net Income
+								 </td>
+								 <!-- <td align="right">${{fnumber t1.netIncome}}</td> -->
+								 <td align="right">${{fnumber netIncome}}</td>
+							</tr>
+					 </tbody>
+				</table>
+			 </div>
+		</div>
+	</div>
+	</section>
+</div>
+{{else}}
+
+{{/if}}
+
+{{/each}}
+
+
+
+
+
+
+
+	<script>
+	//initials
+	var team = {{t1.team}};
+	var contract = {{params.income}};
+	var netcontract = {{t1.netIncome}};
+	var contractLength = {{params.years}};
+	var discountRate = {{params.discountrate}};
+	//for graph and if statements
+	var seasons = [];
+	var payroll = [];
+	var salarycap = [94000000, 102000000, 108000000, 109000000, 114000000];
+	var taxthreshold = [113000000, 122000000, 130000000, 132000000, 139000000];
+
+	//initial structuregross contract
+	var structuredContract = [];
+	var netStructuredContract = [];
+	//table totals
+	var grossTotal;
+	var netTotal;
+	var netPresentValue = [];
+
+
+	/*
+	** First, initialize the gross and net contract arrays
+	**  These arrays will hold the state of the graph, etc
+	*/
+	for(var i = 0; i < contractLength; i++)
+	{
+		var  perYearContract = contract/contractLength;
+		structuredContract.push(perYearContract);
+
+		var netPerYearContract = netcontract/contractLength;
+		netStructuredContract.push(netPerYearContract)
+
+	}
+	console.log(structuredContract);
+	console.log(netStructuredContract);
+	//main
+
+
+
+
+	/*
+	** Second, create the labels for the graph.  We need as many labels as there are years
+	**
+	*/
+	setSeasonCategories(contractLength);
+	// payroll = setTeamPayroll(contractLength);
+
+
+
+	//equalcontract
+	//   if($('#equal-payment').is(':checked'))
+	//   {
+	//     for(var i = 0; i < contractLength; i++)
+	//     {
+	//       var  perYearContract = contract/contractLength;
+	//       structuredContract.push(perYearContract);
+
+	//       var netPerYearContract = netcontract/contractLength;
+	//       netStructuredContract.push(netPerYearContract)
+
+	//     }
+	//   }
+	//   else if($('#ip-payment').is(':checked'))
+	//   {
+
+	//   }
+
+	// }
+	/*
+	** Third, create the imputs under the the graph.  We need as many inputs as there are years
+	** and we need to set the value to the gross and net contracts.  In addition, set the PV data.
+	*/
+	setSeasonInputs(structuredContract);
+	var pv = setPV(netStructuredContract);
+	setNetSeasonPV(pv);
+
+	pv = setPV(structuredContract);
+	setGrossSeasonPV(pv);
+
+
+	/*
+	** Sum everything up.
+	**
+	*/
+	sumGrossAndNetSeasonTotals();
+
+	function formatM(number){
+	var formatted = numeral(number).format('0,0');
+	console.log(formatted)
+	return formatted;
+	}
+
+	function setSeasonInputs(structuredContract){
+
+	for(i = 0; i < structuredContract.length; i++){
+		seasonNum = i + 1;
+		$("#grossseason-" + seasonNum.toString()).val(Math.round(structuredContract[i]).toString());
+		editNetStructuredContract(structuredContract[i], i);
+		document.getElementById("netseason-"+(i+1)).innerHTML = formatM(netStructuredContract[i]);
+	}
+	}
+
+	/*
+	** On changing the contract weights we need to other contract data too
+	**
+	*/
+	function editNetStructuredContract(grosspay ,elId){
+
+	var ratio = grosspay/contract;
+	var netPayment = ratio*netcontract;
+	//document.getElementById("netseason-"+ elId).innerHTML = formatM(netPayment);
+	// console.log(netPayment);
+
+	netStructuredContract[elId] = netPayment;
+	}
+
+	function sumStructuredContract(){
+	var ratio = grosspay/contract;
+	var netPayment = ratio*netcontract;
+
+	var arr = structuredContract;
+		var tot=0;
+		for(var i=0;i<arr.length;i++){
+
+						tot += arr[i];
+
+		}
+		grosstotal = tot;
+		document.getElementById("grosstotal").innerHTML = formatM(grosstotal);
+		//document.getElementById("nettotal").innerHTML = formatM(nettotal);
+		console.log("at ssC : " +arr);
+
+	}
+
+	function editStructuredContract(newcontract, elid){
+
+		structuredContract[elid] = newcontract;
+	}
+
+
+	//add season totals for table
+	function sumGrossAndNetSeasonTotals(){
+		var arrgross, arrnet = [];
+		arrgross = structuredContract.slice(0);
+		arrnet = netStructuredContract.slice(0);
+	 var totgross = 0;
+	 var totnet = 0;
+
+		for(var i=0;i<arrgross.length;i++){
+						totgross += arrgross[i];
+		}
+		grossTotal = totgross;
+
+		for(var i=0;i<arrnet.length;i++){
+						totnet += arrnet[i];
+		}
+		console.log(arrnet);
+		document.getElementById("grosstotal").innerHTML= formatM(totgross);
+		document.getElementById("nettotal").innerHTML= formatM(totnet);
+
+	}
+
+	//set categories for graph
+	function setSeasonCategories(years) {
+
+	seasons = [];
+
+	 var year;
+	 var month = new Date().getMonth();
+	 for(i = 0; i < years; i++)
+	 {
+		year = new Date().getFullYear() + i;
+		 if (month < 2)
+		 {
+			 year = year - 1;
+		 }
+	 var season = year + "-" + (year + 1 - 2000) ;
+	 season = season.toString();
+
+	 seasons.push(season);
+	 console.log(seasons);
+	 }
+	 return seasons;
+	}
+
+
+
+	// //get Team payroll for graph
+	// function setTeamPayroll(contractLength){
+	//   var payrollReturn = [];
+	//   var json = '<%= raw @payrolls %>';
+	//   var payrolls = JSON.parse(json);
+	//
+	//   $.each(payrolls, function(k, v) {
+	//     var value
+	//     if (v != null){
+	//       value = v.replace('$','');
+	//     } else{
+	//       value = 0;
+	//     }
+	//     payrollReturn.push(parseInt(value));
+	//     console.log(k + ' is ' + v);
+	//     console.log(payrollReturn)
+	//   });
+	//
+	//   if (payrollReturn.length > contractLength){
+	//     payrollReturn = payrollReturn.slice(0,contractLength);
+	//   }
+	//
+	//   return payrollReturn;
+	// }
+
+
+	$('#newcontract').change(function() {
+		var val = $(this).is(':checked');
+		chart.series[2].setVisible(val);
+	});
+
+	$('#currentpayroll').change(function(){
+		var val = $(this).is(':checked');
+		chart.series[0].setVisible(val);
+		chart.series[1].setVisible(val);
+		chart.series[3].setVisible(val);
+	});
+
+
+	$('.form-control.salarypayments').change(function() {
+	var arr = document.getElementsByName('salarypayments');
+		var tot=0;
+		for(var i=0;i<arr.length;i++){
+				if(parseInt(arr[i].value))
+						tot += parseInt(arr[i].value);
+		}
+		//$().text(tot);
+		//document.getElementById(".grosstotal").textContent= "testtt";
+		 document.getElementById("grosstotal").innerHTML = tot;
+	});
+
+	function setPV(contract){
+	var pvresult = 0;
+	var pvarr = [];
+	var pvyear = 0;
+
+	for(i = 0; i < contract.length; i++){
+		pvyear = contract[i]/Math.pow((1 + discountRate), i);
+			pvresult += pvyear;
+		pvarr.push(pvyear);
+	}
+	console.log(pvarr);
+	console.log(pvresult);
+
+								return [pvarr, pvresult];
+	}
+
+	function setNetSeasonPV(pvdata){
+	seasonpv = pvdata[0];
+	totalpv = pvdata[1];
+
+	var i;
+	for(i = 0; i < seasonpv.length; i++){
+		document.getElementById("netpvseason-"+(i+1)).innerHTML = formatM(seasonpv[i]);
+	}
+	document.getElementById("netpvtotal").innerHTML = formatM(totalpv);
+	}
+
+
+	function setGrossSeasonPV(pvdata){
+	seasonpv = pvdata[0];
+	totalpv = pvdata[1];
+	var i;
+	for(i = 0; i < seasonpv.length; i++){
+		document.getElementById("grosspvseason-"+(i+1)).innerHTML = formatM(seasonpv[i]);
+	}
+	document.getElementById("grosspvtotal").innerHTML = formatM(totalpv);
+	}
+
+	function getStructuredContractTotal(){
+	 var arrgross = [];
+		arrgross = structuredContract.slice(0);
+
+	 var sumContract = 0;
+
+		for(var i=0;i<arrgross.length;i++){
+						sumContract += arrgross[i];
+		}
+
+	return sumContract;
+	}
+
+	function getGrossContract(){
+
+	return contract;
+	}
+
+	function getContractLength(){
+
+	return contractLength;
+	}
+
+
+	function showWarning() {
+	if ($('#distributeWarning').hasClass('hide')) {
+			$('#distributeWarning').removeClass('hide');
+	};
+
+	}
+
+	function hideWarning() {
+	if ($('#distributeWarning').hasClass('hide')) return;
+	$('#distributeWarning').addClass('hide');
+	}
+
+	function redistribute(){
+
+	var contract = getGrossContract();
+	var sumContract = getStructuredContractTotal();
+	var years = getContractLength();
+	var distribute = 0;
+	var difference = 0;
+
+	if (contract != sumContract){
+		difference = contract - sumContract;
+		distribute = difference / years;
+			// Save it!
+		for(var i=0;i<structuredContract.length;i++){
+			var newcontract = structuredContract[i] + distribute;
+
+			editStructuredContract(newcontract, i);
+			editNetStructuredContract(newcontract, i);
+
+
+		chart.series[2].data[i].update({
+			y: newcontract
+		});
+			refreshTableandChart();
+		}
+	}
+	hideWarning();
+	}
+
+	function refreshTableandChart(){
+
+		for(var i=0; i < structuredContract.length; i++){
+
+		$('#grossseason-'+(i+1)).val(structuredContract[i]);
+		document.getElementById("netseason-"+(i+1)).innerHTML = formatM(netStructuredContract[i]);
+
+		sumGrossAndNetSeasonTotals();
+		var pv = setPV(netStructuredContract);
+		setNetSeasonPV(pv);
+		var pv2 = setPV(structuredContract);
+		setGrossSeasonPV(pv2);
+
+		}
+
+	}
+
+
+	//create chart
+	var chart = new Highcharts.Chart({
+
+	chart: {
+		renderTo: 'container',
+		animation: false
+	},
+	title: {
+			text: ''
+		},
+
+	xAxis: {
+		categories: seasons,
+		title: {
+			text: 'Season'
+		}
+	},
+
+
+	yAxis: [{
+		title: {
+			text: '$ Dollars'
+		}
+	}],
+
+	plotOptions: {
+		series: {
+			borderColor: '#2c3e50',
+			// point: {
+			//   events: {
+			//     drag: function(e) {
+			//       $('#drag').html(
+			//         'Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Highcharts.numberFormat(e.y, 0,'','') + '</b>');
+			//
+			//         var i=0, len = seasons.length;
+			//         for(;i<len;i++) if (this.category ==  seasons[i]) break;
+			//
+			//         editStructuredContract(e.y, i);
+			//         editNetStructuredContract(e.y, i);
+			//
+			//       refreshTableandChart();
+			//
+			//       var total  = getStructuredContractTotal();
+			//       var origcontract = getGrossContract();
+			//
+			//       if (origcontract != total){
+			//         showWarning();
+			//       } else {
+			//           hideWarning();
+			//       }
+			//     },
+			//     drop: function() {
+			//       $('#drop').html(
+			//         'In <b>' + this.series.name + '</b>, <b>' + this.category + '</b> was set to <b>' + Highcharts.numberFormat(this.y, 0,'','') + '</b>');
+			//     }
+			//   }
+			// },
+			stickyTracking: false
+		},
+		column: {
+			stacking: 'normal'
+		},
+		line: {
+			cursor: 'ns-resize'
+		}
+	},
+
+	tooltip: {
+		yDecimals: 2
+	},
+
+	series: [{
+		name: 'Salary Cap',
+		data: [94000000, 102000000, 108000000, 109000000, 114000000],
+		visible: true
+	}, {
+		name: 'Tax Cap',
+		data: [113000000, 122000000, 130000000, 132000000, 139000000]
+	}, {
+		name: 'New Contract',
+		data: structuredContract.slice(0),
+		 visible: true,
+		//draggableY: true,
+	 // dragMinY: 0,
+		type: 'column',
+		minPointLength: 2,
+		color: 'whitesmoke'
+	}, {
+		name: 'Current Payroll',
+		data: payroll,
+		visible: true,
+		//draggableX: true,
+		draggableY: false,
+		dragMinY: 0,
+		type: 'column',
+		minPointLength: 2,
+		color: '#2c3e50'
+	}]
+
+	}, function(chart) {
+
+	$('.salarypayments').on('keyup change', function(e){
+		// this - the current el
+		var elId = this.id;
+		var num = +elId.split('-')[1];
+		num--;
+
+		var val = parseInt(this.value) || 0;
+		chart.series[2].data[num].update({
+			y: val
+		});
+
+		editStructuredContract(val, num);
+		editNetStructuredContract(val, num);
+
+		refreshTableandChart();
+
+		 var total  = getStructuredContractTotal();
+		 var origcontract = getGrossContract();
+
+		 if (origcontract != total){
+			 console.log("in loo")
+			 showWarning();
+
+		 } else {
+				hideWarning();
+		 }
+	})
+	});
+	</script>
+
+	</section>
+
+</body>
+
+</html>

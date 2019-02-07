@@ -1,0 +1,1267 @@
+<div class="container-fluid">
+  {{#if messages.success}}
+    <div role="alert" class="alert alert-success">
+      {{#each messages.success}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#if messages.error}}
+    <div role="alert" class="alert alert-danger">
+      {{#each messages.error}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  {{#if messages.info}}
+    <div role="alert" class="alert alert-info">
+      {{#each messages.info}}
+        <div>{{msg}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+
+  <!-- Don't Touch Above! -->
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+      <div class="panel">
+        <!-- <div class="panel-body"> -->
+          <!-- <h3>jocktaxindex</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+            condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+            Donec sed odio dui.</p>
+          <a href="#" role="button" class="btn btn-default">View details</a> -->
+          <div class="panel-body hidden-print">
+                     <h4>Options</h4>
+                    <form role="form" action="/nba" method="post">
+                      <label for="contract">Contract Amount</label>
+                        <div class="form-group">
+
+                           <input type="text" name="contract" id="contract" value="{{params.income}}" placeholder="10000000" class="selectpicker">
+                        </div>
+                        <label for="years">Years</label>
+                        <div class="form-group">
+
+                           <select name="years" id="years" class="selectpicker" value="{{params.years}}">
+                              <option value="1" {{#ifeq params.years '1'}}selected{{/ifeq}}>1</option>
+                              <option value="2"{{#ifeq params.years '2'}}selected{{/ifeq}}>2</option>
+                              <option value="3"{{#ifeq params.years '3'}}selected{{/ifeq}}>3</option>
+                              <option value="4"{{#ifeq params.years '4'}}selected{{/ifeq}}>4</option>
+                              <option value="5"{{#ifeq params.years '5'}}selected{{/ifeq}}>5</option>
+                              <option value="6"{{#ifeq params.years '6'}}selected{{/ifeq}}>6</option>
+                              <option value="7"{{#ifeq params.years '7'}}selected{{/ifeq}}>7</option>
+                              <option value="8"{{#ifeq params.years '8'}}selected{{/ifeq}}>8</option>
+                              <option value="9"{{#ifeq params.years '9'}}selected{{/ifeq}}>9</option>
+                              <option value="10"{{#ifeq params.years '10'}}selected{{/ifeq}}>10</option>
+                              <option value="11"{{#ifeq params.years '11'}}selected{{/ifeq}}>11</option>
+                              <option value="12"{{#ifeq params.years '12'}}selected{{/ifeq}}>12</option>
+                            </select>
+                        </div>
+                        <!-- <label for="filing">Filing Status</label>
+                        <div class="form-group">
+
+                           <select name="filing" id="filing" class="selectpicker">
+                             <option value="Single" {{#ifeq params.filing 'Single'}}selected{{/ifeq}}>Single</option>
+                             <option value="Couple" {{#ifeq params.filing 'Couple'}}selected{{/ifeq}}>Couple</option></select>
+                        </div> -->
+                        <label for="team1">Offer From</label>
+                        <div class="form-group">
+                          <select name="team1" id="team1" class="selectpicker">
+                          {{#ifeq user.role 'demo'}}
+
+                             <option value="Charlotte Hornets" {{#ifeq params.team1 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                             <option value="Orlando Magic" {{#ifeq params.team1 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                             <option value="Sacramento Kings" {{#ifeq params.team1 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+
+                           {{/ifeq}}
+                           {{#ifeq user.role 'paid'}}
+
+                             <option value="Atlanta Hawks" {{#ifeq params.team1 'Atlanta Hawks'}}selected{{/ifeq}}>Atlanta Hawks</option>
+                              <option value="Boston Celtics" {{#ifeq params.team1 'Boston Celtics'}}selected{{/ifeq}}>Boston Celtics</option>
+                              <option value="Brooklyn Nets" {{#ifeq params.team1 'Brooklyn Nets'}}selected{{/ifeq}}>Brooklyn Nets</option>
+                              <option value="Charlotte Hornets" {{#ifeq params.team1 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                              <option value="Chicago Bulls" {{#ifeq params.team1 'Chicago Bulls'}}selected{{/ifeq}}>Chicago Bulls</option>
+                              <option value="Cleveland Cavaliers" {{#ifeq params.team1 'Cleveland Cavaliers'}}selected{{/ifeq}}>Cleveland Cavaliers</option>
+                              <option value="Dallas Mavericks" {{#ifeq params.team1 'Dallas Mavericks'}}selected{{/ifeq}}>Dallas Mavericks</option>
+                              <option value="Denver Nuggets" {{#ifeq params.team1 'Denver Nuggets'}}selected{{/ifeq}}>Denver Nuggets</option>
+                              <option value="Detroit Pistons" {{#ifeq params.team1 'Detroit Pistons'}}selected{{/ifeq}}>Detroit Pistons</option>
+                              <option value="Golden State Warriors" {{#ifeq params.team1 'Golden State Warriors'}}selected{{/ifeq}}>Golden State Warriors</option>
+                              <option value="Houston Rockets" {{#ifeq params.team1 'Houston Rockets'}}selected{{/ifeq}}>Houston Rockets</option>
+                              <option value="Indiana Pacers" {{#ifeq params.team1 'Indiana Pacers'}}selected{{/ifeq}}>Indiana Pacers</option>
+                              <option value="Los Angeles Clippers" {{#ifeq params.team1 'Los Angeles Clippers'}}selected{{/ifeq}}>Los Angeles Clippers</option>
+                              <option value="Los Angeles Lakers" {{#ifeq params.team1 'Los Angeles Lakers'}}selected{{/ifeq}}>Los Angeles Lakers</option>
+                              <option value="Memphis Grizzlies" {{#ifeq params.team1 'Memphis Grizzlies'}}selected{{/ifeq}}>Memphis Grizzlies</option>
+                              <option value="Miami Heat" {{#ifeq params.team1 'Miami Heat'}}selected{{/ifeq}}>Miami Heat</option>
+                              <option value="Milwaukee Bucks" {{#ifeq params.team1 'Milwaukee Bucks'}}selected{{/ifeq}}>Milwaukee Bucks</option>
+                              <option value="Minnesota Timberwolves" {{#ifeq params.team1 'Minnesota Timberwolves'}}selected{{/ifeq}}>Minnesota Timberwolves</option>
+                              <option value="New Orleans Hornets" {{#ifeq params.team1 'New Orleans Hornets'}}selected{{/ifeq}}>New Orleans Hornets</option>
+                              <option value="New York Knicks" {{#ifeq params.team1 'New York Knicks'}}selected{{/ifeq}}>New York Knicks</option>
+                              <option value="Oklahoma City Thunder" {{#ifeq params.team1 'Oklahoma City Thunder'}}selected{{/ifeq}}>Oklahoma City Thunder</option>
+                              <option value="Orlando Magic" {{#ifeq params.team1 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                              <option value="Philadelphia Sixers" {{#ifeq params.team1 'Philadelphia Sixers'}}selected{{/ifeq}}>Philadelphia Sixers</option>
+                              <option value="Phoenix Suns" {{#ifeq params.team1 'Phoenix Suns'}}selected{{/ifeq}}>Phoenix Suns</option>
+                              <option value="Portland Trail Blazers" {{#ifeq params.team1 'Portland Trail Blazers'}}selected{{/ifeq}}>Portland Trail Blazers</option>
+                              <option value="Sacramento Kings" {{#ifeq params.team1 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                              <option value="San Antonio Spurs" {{#ifeq params.team1 'San Antonio Spurs'}}selected{{/ifeq}}>San Antonio Spurs</option>
+                              <option value="Toronto Raptors" {{#ifeq params.team1 'Toronto Raptors'}}selected{{/ifeq}}>Toronto Raptors</option>
+                              <option value="Utah Jazz" {{#ifeq params.team1 'Utah Jazz'}}selected{{/ifeq}}>Utah Jazz</option>
+                              <option value="Washington Wizards" {{#ifeq params.team1 'Washington Wizards'}}selected{{/ifeq}}>Washington Wizards</option>
+
+                           {{/ifeq}}
+                           </select>
+                        </div>
+
+                        <label for="team2">Competing Offer(s) For</label>
+                        <div class="form-group">
+                          <select name="team2" id="team2" class="selectpicker">
+                        {{#ifeq user.role 'demo'}}
+                           <option value="Charlotte Hornets" {{#ifeq params.team2 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                           <option value="Orlando Magic" {{#ifeq params.team2 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                           <option value="Sacramento Kings" {{#ifeq params.team2 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                         {{/ifeq}}
+                         {{#ifeq user.role 'paid'}}
+                           <option value="Atlanta Hawks" {{#ifeq params.team2 'Atlanta Hawks'}}selected{{/ifeq}}>Atlanta Hawks</option>
+                            <option value="Boston Celtics" {{#ifeq params.team2 'Boston Celtics'}}selected{{/ifeq}}>Boston Celtics</option>
+                            <option value="Brooklyn Nets" {{#ifeq params.team2 'Brooklyn Nets'}}selected{{/ifeq}}>Brooklyn Nets</option>
+                            <option value="Charlotte Hornets" {{#ifeq params.team2 'Charlotte Hornets'}}selected{{/ifeq}}>Charlotte Hornets</option>
+                            <option value="Chicago Bulls" {{#ifeq params.team2 'Chicago Bulls'}}selected{{/ifeq}}>Chicago Bulls</option>
+                            <option value="Cleveland Cavaliers" {{#ifeq params.team2 'Cleveland Cavaliers'}}selected{{/ifeq}}>Cleveland Cavaliers</option>
+                            <option value="Dallas Mavericks" {{#ifeq params.team2 'Dallas Mavericks'}}selected{{/ifeq}}>Dallas Mavericks</option>
+                            <option value="Denver Nuggets" {{#ifeq params.team2 'Denver Nuggets'}}selected{{/ifeq}}>Denver Nuggets</option>
+                            <option value="Detroit Pistons" {{#ifeq params.team2 'Detroit Pistons'}}selected{{/ifeq}}>Detroit Pistons</option>
+                            <option value="Golden State Warriors" {{#ifeq params.team2 'Golden State Warriors'}}selected{{/ifeq}}>Golden State Warriors</option>
+                            <option value="Houston Rockets" {{#ifeq params.team2 'Houston Rockets'}}selected{{/ifeq}}>Houston Rockets</option>
+                            <option value="Indiana Pacers" {{#ifeq params.team2 'Indiana Pacers'}}selected{{/ifeq}}>Indiana Pacers</option>
+                            <option value="Los Angeles Clippers" {{#ifeq params.team2 'Los Angeles Clippers'}}selected{{/ifeq}}>Los Angeles Clippers</option>
+                            <option value="Los Angeles Lakers" {{#ifeq params.team2 'Los Angeles Lakers'}}selected{{/ifeq}}>Los Angeles Lakers</option>
+                            <option value="Memphis Grizzlies" {{#ifeq params.team2 'Memphis Grizzlies'}}selected{{/ifeq}}>Memphis Grizzlies</option>
+                            <option value="Miami Heat" {{#ifeq params.team2 'Miami Heat'}}selected{{/ifeq}}>Miami Heat</option>
+                            <option value="Milwaukee Bucks" {{#ifeq params.team2 'Milwaukee Bucks'}}selected{{/ifeq}}>Milwaukee Bucks</option>
+                            <option value="Minnesota Timberwolves" {{#ifeq params.team2 'Minnesota Timberwolves'}}selected{{/ifeq}}>Minnesota Timberwolves</option>
+                            <option value="New Orleans Hornets" {{#ifeq params.team2 'New Orleans Hornets'}}selected{{/ifeq}}>New Orleans Hornets</option>
+                            <option value="New York Knicks" {{#ifeq params.team2 'New York Knicks'}}selected{{/ifeq}}>New York Knicks</option>
+                            <option value="Oklahoma City Thunder" {{#ifeq params.team2 'Oklahoma City Thunder'}}selected{{/ifeq}}>Oklahoma City Thunder</option>
+                            <option value="Orlando Magic" {{#ifeq params.team2 'Orlando Magic'}}selected{{/ifeq}}>Orlando Magic</option>
+                            <option value="Philadelphia Sixers" {{#ifeq params.team2 'Philadelphia Sixers'}}selected{{/ifeq}}>Philadelphia Sixers</option>
+                            <option value="Phoenix Suns" {{#ifeq params.team2 'Phoenix Suns'}}selected{{/ifeq}}>Phoenix Suns</option>
+                            <option value="Portland Trail Blazers" {{#ifeq params.team2 'Portland Trail Blazers'}}selected{{/ifeq}}>Portland Trail Blazers</option>
+                            <option value="Sacramento Kings" {{#ifeq params.team2 'Sacramento Kings'}}selected{{/ifeq}}>Sacramento Kings</option>
+                            <option value="San Antonio Spurs" {{#ifeq params.team2 'San Antonio Spurs'}}selected{{/ifeq}}>San Antonio Spurs</option>
+                            <option value="Toronto Raptors" {{#ifeq params.team2 'Toronto Raptors'}}selected{{/ifeq}}>Toronto Raptors</option>
+                            <option value="Utah Jazz" {{#ifeq params.team2 'Utah Jazz'}}selected{{/ifeq}}>Utah Jazz</option>
+                            <option value="Washington Wizards" {{#ifeq params.team2 'Washington Wizards'}}selected{{/ifeq}}>Washington Wizards</option>
+                         {{/ifeq}}
+                       </select>
+                        </div>
+                        <br>
+                        <h4>Tax Rules</h4>
+                        <label for="taxlaw">Tax Law</label>
+                        <div class="form-group">
+                           <select name="taxlaw" id="taxlaw" class="selectpicker">
+                            <option value="preTrump" {{#ifeq params.taxlaw 'preTrump'}}selected{{/ifeq}}>Pre-Trump</option>
+                            <option value="postTrump" {{#ifeq params.taxlaw 'postTrump'}}selected{{/ifeq}} disabled="disabled">Post-Trump</option>
+                           </select>
+                        </div>
+                        <br>
+                        <h4>Present Value</h4>
+                        <label for="discountrate">Discount Rate</label>
+                        <div class="form-group">
+
+                           <select name="discountrate" id="discountrate" class="selectpicker"><option value="0.0">0.0</option>
+                              <option value="0.01" {{#ifeq params.discountrate '0.01'}}selected{{/ifeq}}>0.01</option>
+                              <option value="0.02" {{#ifeq params.discountrate '0.02'}}selected{{/ifeq}}>0.02</option>
+                              <option value="0.03" {{#ifeq params.discountrate '0.03'}}selected{{/ifeq}}>0.03</option>
+                              <option value="0.04" {{#ifeq params.discountrate '0.04'}}selected{{/ifeq}}>0.04</option>
+                              <option value="0.05" {{#ifeq params.discountrate '0.05'}}selected{{/ifeq}}>0.05</option>
+                              <option value="0.06" {{#ifeq params.discountrate '0.06'}}selected{{/ifeq}}>0.06</option>
+                              <option value="0.07" {{#ifeq params.discountrate '0.07'}}selected{{/ifeq}}>0.07</option>
+                              <option value="0.08" {{#ifeq params.discountrate '0.08'}}selected{{/ifeq}}>0.08</option>
+                              <option value="0.09" {{#ifeq params.discountrate '0.09'}}selected{{/ifeq}}>0.09</option>
+                              <option value="0.1" {{#ifeq params.discountrate '0.1'}}selected{{/ifeq}}>0.10</option>
+                              <option value="0.11" {{#ifeq params.discountrate '0.11'}}selected{{/ifeq}}>0.11</option>
+                              <option value="0.12" {{#ifeq params.discountrate '0.12'}}selected{{/ifeq}}>0.12</option>
+                            </select>
+                        </div>
+                        <div class="clearfix mtop15"></div>
+                        <button class="button btn btn-primary pull-right mtop15" id="submit-button">Submit</button>
+
+                     </form></div>
+
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-12 ">
+        <div class="panel report">
+            <div class="panel-body">
+              <!--<h2>Jock Tax Index</h2>-->
+
+              <a id="pdf-gen" class="btn btn-primary pull-right mright10">
+              Print Report
+              <i class="fa fa-print">
+              </i></a>
+              <h2>Tax Analysis</h2>
+              <div class="panel_s">
+                 <div class="panel-body">
+                    <div class="row">
+                       <div class="col-lg-12 col-md-12">
+                         <ul class="nav nav-tabs navtab-custom">
+                             <li class="active ">
+                                 <a href="#0" data-toggle="tab" aria-expanded="false">
+                                     <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                     <span class="hidden-xs">{{team1.team}}</span>
+                                 </a>
+                             </li>
+                         </ul>
+
+                         <div class="tab-content summary">
+                               <div class="tab-pane active page-break" id="0" role="tabpanel">
+                                      <div class="col-sm-12">
+                                         <div class="row">
+                                               <div class="col-lg-12 ">
+                                                  <h4 class="bold no-margin">Summary</h4>
+                                                  <hr>
+                                                  <div class="col-lg-12">
+                                                     <div class="row">
+                                                       <p> Given a gross contract of ${{fnumber params.income}}, a player will make ${{fnumber team1.netIncome}}
+                                                          if signing with the {{team1.team}}, and make ${{fnumber team2.netIncome}} if they were to sign with the {{team2.team}}.
+                                                          Net of taxes, playing for the {{comparison.betterTeam}} is a better deal.
+                                                          For the {{team2.team}} to match the contract of the
+                                                          {{team1.team}}, they must pay ${{fnumber comparison.matchedContract}} to the signee— <strong>a {{comparison.premiumWord}} of ${{fnumber comparison.premium}}</strong>.
+                                                       </p>
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                            </div>
+                                            <div class="row">
+                                               <div class="col-lg-4  col-md-4 col-sm-4 project-overview-column text-analysis__item-4">
+                                                  <div class="row">
+                                                     <div class="col-lg-12">
+                                                        <h4 class="bold no-margin">Inputs</h4>
+                                                        <hr>
+                                                        <div class="row">
+                                                           <table class="table table-borded no-margin">
+                                                              <tbody>
+                                                                 <tr>
+                                                                    <td class="bold">Contract Amount</td>
+                                                                    <td>{{fnumber params.income}}</td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                    <td class="bold">Years</td>
+                                                                    <td>{{params.years}}</td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                    <td class="bold">Offer From</td>
+                                                                    <td>{{team1.team}}</td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                    <td class="bold">Competing Offer</td>
+                                                                    <td>{{team2.team}}</td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                    <td class="bold">Discount Rate</td>
+                                                                    <td>{{params.discountrate}}</td>
+                                                                 </tr>
+
+                                                              </tbody>
+                                                           </table>
+                                                        </div>
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                               <div class="col-lg-8 col-md-8 col-sm-8 text-analysis__item-4">
+                                                  <h4 class="bold no-margin">Comparison</h4>
+                                                  <hr>
+                                                  <div class="row">
+                                                     <div class="col-lg-6 col-md-6 col-sm-6 comparison__item" {{#gt team1.netIncome team2.netIncome}}style="border: 4px solid #ecf0f1"{{else}}{{/gt}}>
+                                                        <h4 class="m-b-lg">
+                                                           <span class="team1-name">{{team1.team}}</span>
+                                                        </h4>
+                                                        <!--Proposed Contract -->
+                                                        <!--<h3 class="no-margins">-->
+                                                        <!--   <span class="team1-proposal">-->
+                                                        <!--   </span>-->
+                                                        <!--</h3>-->
+                                                        <table class="table">
+                                                           <tbody>
+                                                              <tr>
+                                                                 <td>
+                                                                    Net
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-proposal">
+                                                                    ${{fnumber team1.netIncome}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                              <tr>
+                                                                 <td>
+                                                                    Net AAV
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-aav">
+                                                                    ${{fnumber team1.aav}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                              <tr>
+                                                                 <td>
+                                                                    Tax Rate
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-avgtaxrate">
+                                                                    {{pct team1.taxRate}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                           </tbody>
+                                                        </table>
+                                                        {{#gt team1.netIncome team2.netIncome}} <h4> <i class="fa fa-check fa-3" aria-hidden="true"></i>  Better Net Value</h4>{{else}}{{/gt}}
+
+                                                     </div>
+                                                     <div class="col-lg-6 col-md-6 col-sm-6 comparison__item" {{#gt team1.netIncome team2.netIncome}}{{else}}style="border: 4px solid #ecf0f1"{{/gt}}>
+                                                        <h4 class="m-b-lg">
+                                                           <span class="team2-name">
+                                                           {{team2.team}}
+                                                           </span>
+                                                        </h4>
+                                                        <!--Matched Contract -->
+                                                        <!--<h3 class="no-margins">-->
+                                                        <!--   <span class="team2-matchcontract">-->
+                                                        <!--   $5,362,757-->
+                                                        <!--   </span>-->
+                                                        <!--</h3>-->
+                                                        <table class="table">
+                                                           <tbody>
+                                                              <tr>
+                                                                 <td>
+                                                                    Net
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-proposal">
+                                                                    ${{fnumber team2.netIncome}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                              <tr>
+                                                                 <td>
+                                                                    Net AAV
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-aav">
+                                                                      ${{fnumber team2.aav}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                              <tr>
+                                                                 <td>
+                                                                    Tax Rate
+                                                                    <span class="pull-right">
+                                                                    <strong>
+                                                                    <span class="team1-avgtaxrate">
+                                                                      {{pct team2.taxRate}}
+                                                                    </span></strong></span>
+                                                                 </td>
+                                                              </tr>
+                                                           </tbody>
+                                                        </table>
+                                                        {{#gt team1.netIncome team2.netIncome}} {{else}}<h4> <i class="fa fa-check fa-3" aria-hidden="true"></i>  Better Net Value</h4>{{/gt}}
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                            </div>
+
+                                            <div class="row">
+                                                  <div class="col-lg-12">
+                                                     <div class="row">
+                                                        <div class="col-lg-6">
+                                                           <h4 class="text-center">Net Income</h4>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                           <h4 class="text-center">Taxes</h4>
+                                                        </div>
+
+                                                        <div class="chart">
+                                                           <div class="one" style="width: {{gpct team1.taxRate}};"><span class="team">{{team1.team}}</span><span class="info">${{fnumber team1.netIncome}}</span> </div>
+                                                           <div class="two" style="width: {{pct team1.taxRate}};"><span class="info">${{fnumber team1.totalTax}}</span></div>
+                                                           <div class="one" style="width: {{gpct team2.taxRate}};"><span class="team">{{team2.team}}</span><span class="info">${{fnumber team2.netIncome}}</span></div>
+                                                           <div class="two" style="width: {{pct team2.taxRate}};"><span class="info">${{fnumber team2.totalTax}}</span></div>
+                                                        </div>
+                                                     </div>
+                                                  </div>
+                                            </div>
+
+                                         <div class="row">
+                                            <div class="col-lg-12">
+                                               <h4 class="bold no-margin">Income Statement</h4>
+                                               <hr>
+                                               <table class="table table-responsive">
+                                                  <tbody>
+                                                     <tr>
+                                                        <td colspan="2">
+                                                        </td>
+                                                        <th scope="col" style="text-align:right;">
+                                                           <h4>{{team1.team}}</h4>
+                                                        </th>
+                                                        <th scope="col" style="text-align:right;">
+                                                           <h4>{{team2.team}}</h4>
+                                                        </th>
+                                                     </tr>
+                                                     <tr>
+                                                        <td colspan="2">
+                                                           Gross Income
+                                                        </td>
+                                                        <td align="right">
+                                                           ${{fnumber params.income}}
+                                                        </td>
+                                                        <td align="right">
+                                                           ${{fnumber params.income}}
+                                                        </td>
+                                                     </tr>
+                                                     <!--<tr>-->
+                                                     <!--   <td colspan="2">-->
+                                                     <!--      Deductions-->
+                                                     <!--   </td>-->
+                                                     <!--   <td align="right">-->
+                                                     <!--      -->
+                                                     <!--   </td>-->
+                                                     <!--   <td align="right">-->
+                                                     <!--      -->
+                                                     <!--   </td>-->
+                                                     <!--</tr>-->
+                                                     <!--<tr style="border-bottom:1pt solid black;">-->
+                                                     <!--   <td colspan="2">-->
+                                                     <!--    Adjusted Gross Income-->
+                                                     <!--   </td>-->
+                                                     <!--   <td align="right"></td>-->
+                                                     <!--   <td align="right"></td>-->
+                                                     <!--</tr>-->
+                                                     <!--<tr>-->
+                                                     <!--   <td colspan="5">-->
+                                                     <!--      <span style="display:block; width:5px; height:1px;">-->
+                                                     <!--      </span>-->
+                                                     <!--   </td>-->
+                                                     <!--</tr>-->
+                                                     <!--<tr>-->
+                                                     <!--   <td colspan="2">-->
+                                                     <!--      Taxes-->
+                                                     <!--   </td>-->
+                                                     <!--</tr>-->
+                                                     
+                                                     <tr>
+                                                        <td>
+                                                           <spacer height="1" type="block" width="30"></spacer>
+                                                        </td>
+                                                        <td>- Deductions </td>
+                                                        <td align="right">${{fnumber team1.deductions}}</td>
+                                                        <td align="right">${{fnumber team2.deductions}}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td colspan="2">
+                                                          Taxable Income
+                                                       </td>
+                                                        <td align="right">${{fnumber team1.taxableincome}}</td>
+                                                        <td align="right">${{fnumber team2.taxableincome}}</td>
+                                                     </tr>
+                                                     <tr>
+                                                        <td colspan="5" style="height:0;padding:0; ">
+                                                           <span style="display:block; width:5px; height:10px;">
+                                                           </span>
+                                                        </td>
+                                                     </tr>
+                                                     <tr>
+                                                        <td>
+                                                           <spacer height="1" type="block" width="30"></spacer>
+                                                        </td>
+                                                        <td>- Federal </td>
+                                                        <td align="right">${{fnumber team1.federalTax}}</td>
+                                                        <td align="right">${{fnumber team2.federalTax}}</td>
+                                                     </tr>
+                                                     <tr>
+                                                        <td class="yfnc_tabledata1" width="30">
+                                                           <spacer height="1" type="block" width="30"></spacer>
+                                                        </td>
+                                                        <td>- State</td>
+                                                        <td align="right">${{fnumber team1.stateTax}}</td>
+                                                        <td align="right">${{fnumber team2.stateTax}}</td>
+                                                     </tr>
+                                                     <tr>
+                                                        <td class="yfnc_tabledata1" width="30">
+                                                           <spacer height="1" type="block" width="30"></spacer>
+                                                        </td>
+                                                        <td>- City</td>
+                                                        <td align="right">${{fnumber team1.cityTax}}</td>
+                                                        <td align="right">${{fnumber team2.cityTax}}</td>
+                                                     </tr>
+                                                     <tr>
+                                                        <td class="yfnc_tabledata1" width="30">
+                                                           <spacer height="1" type="block" width="30"></spacer>
+                                                        </td>
+                                                        <td>- FICA</td>
+                                                        <td align="right">${{fnumber team1.fica}}</td>
+                                                        <td align="right">${{fnumber team2.fica}}</td>
+                                                     </tr>
+                                                    
+                                                     <tr>
+                                                        <td colspan="2">
+                                                           Net Income
+                                                        </td>
+                                                        <td align="right">${{fnumber team1.netIncome}}</td>
+                                                        <td align="right">${{fnumber team2.netIncome}}</td>
+                                                     </tr>
+                                                  </tbody>
+                                               </table>
+                                            </div>
+                                         </div>
+                                   </div>
+                             </div>
+                         </div>
+                     </div>
+                    </div>
+                 </div>
+              </div>
+
+              <br><br><br>
+
+
+              <div class="panel_s page-break">
+                 <h2 class="">Payroll Fit and Present Value</h2>
+                 <hr>
+                 <div class="panel-body">
+                    <div class="row">
+
+                       <div class="col-lg-12 project-overview-column">
+                       </div>
+                       <!--<div class="row">-->
+                       <!--   <div class="col-lg-6">-->
+                       <!--   <h4 class="bold no-margin">Contract Structure</h4></h4>-->
+                       <!--     <div class="btn-group" data-toggle="buttons">-->
+                       <!--        <label class="btn btn-primary active">-->
+                       <!--          <input type="radio" name="equal" id="equal-payment" autocomplete="off" checked> Equal-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="radio" name="progressive" id="progressive-payment" autocomplete="off"> Progressive-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="radio" name="backweighted" id="backweighted-payment" autocomplete="off"> Backend-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="radio" name="diminishing" id="diminishing-payment" autocomplete="off"> Diminishing-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="radio" name="custom" id="custom-payment" autocomplete="off"> Custom-->
+                       <!--        </label>-->
+                       <!--     </div>-->
+                       <!--   </div>-->
+                       <!--   <div class="col-lg-6">-->
+                       <!--    <h4 class="bold no-margin">Show</h4></h4>-->
+                       <!--      <div class="btn-group" data-toggle="buttons">-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="checkbox" id="salarycap" checked autocomplete="off"> Salary Cap-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="checkbox" id="taxthreshold" id="taxthreshold" autocomplete="off">Tax Threshold-->
+                       <!--        </label>-->
+                       <!--        <label class="btn btn-primary">-->
+                       <!--          <input type="checkbox" id="newcontract" autocomplete="off">New Contract-->
+                       <!--        </label>-->
+                       <!--         <label class="btn btn-primary">-->
+                       <!--          <input type="checkbox" id="currentpayroll" autocomplete="off">Current Payroll-->
+                       <!--        </label>-->
+                       <!--      </div>-->
+                       <!--   </div>-->
+                       <!--</div>-->
+                       <div class="row">
+                          <!-- <div class="col-lg-6">
+                             <h4 class="bold no-margin">Contract Structure</h4>
+                             <hr>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="equal-payment" autocomplete="off" checked=""> Equal
+                             </label>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="ip-payment" autocomplete="off"> Inflation Protected
+                             </label>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="progressive-payment" autocomplete="off"> Frontend
+                             </label>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="backweighted-payment" autocomplete="off"> Backend
+                             </label>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="diminishing-payment" autocomplete="off"> Diminishing
+                             </label>
+                             <label class="checkbox-inline">
+                             <input type="radio" name="contractstructure" id="custom-payment" autocomplete="off"> Custom
+                             </label>
+                          </div> -->
+                          <!-- <div class="col-lg-6">
+                             <h4 class="bold no-margin">Series</h4>
+                             <hr>
+                             <label class="checkbox-inline"><input type="checkbox" id="newcontract" checked="">New Contract</label>
+                             <label class="checkbox-inline"><input type="checkbox" id="currentpayroll" checked="">Current Payroll, Salary Cap, Luxury Tax</label>
+                          </div> -->
+                       </div>
+                       <div class="row">
+                          <br>
+                          <div class="col-lg-12">
+                             <div id="container" style="width: 80%; height: 500px;" data-highcharts-chart="0">
+                              <div id="distributeWarning" class="hide" border-style:="" solid;="">
+                                <h4 class="bold no-margin"><span class="glyphicon glyphicon-warning-sign"></span>  Warning</h4>
+                                <hr>
+                                <p>Select the years you'd like to <strong>lock in</strong> and the rest will divide the remainder evenly. </p>
+
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-1">2016/2017</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-2">2017/2018</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-3">2019/2019</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-4">2019/2020</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-5">2020/2021</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="disseason-6">2021/2022</label>
+                                <a class="btn btn-primary redistribute-btn" onclick="redistribute()">Redistribute</a>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <h4>
+                             <div id="total"></div>
+                          </h4>
+                       </div>
+                       <form>
+                       <div class="row">
+                          <h4 class="bold no-margin">Per Season</h4>
+                          <hr>
+                          <table class="table table-responsive">
+                             <thead>
+                                <tr>
+                                   <th>Season</th>
+                                   <th>Gross Income</th>
+                                   <th>Net Income</th>
+                                   <th>Discount Rate</th>
+                                   <th>Gross Present Value</th>
+                                   <th>Net Present Value</th>
+                                </tr>
+                             </thead>
+                             <tfoot>
+                                <tr>
+                                   <th>Total</th>
+                                   <th>
+                                      <span id="grosstotal"></span><div id="totalWarning"></div>
+                                   </th>
+                                   <th>
+                                      <div id="nettotal"></div></th>
+                                   <th></th>
+                                   <th><div id="grosspvtotal"></div></th>
+                                   <th><div id="netpvtotal"></div></th>
+                                </tr>
+                             </tfoot>
+                             <tbody id="salaries">
+                                {{#each table}}
+                                <tr>
+                                  <td>{{season}} Season</td>
+
+                                  <!-- <td class="salarypayments" id="{{grossseasonid}}"></td> -->
+                                  <td> <input class="salarypayments" id="{{grossseasonid}}"></td>
+                                  <td>
+                                     <div id="{{netseasonid}}"></div>
+                                  </td>
+                                  <td>{{discountrate}}</td>
+                                  <td>
+                                     <div id="{{grosspvseasonid}}"></div>
+                                  </td>
+                                  <td>
+                                     <div id="{{netpvseasonid}}"></div>
+                                  </td>
+                               </tr>
+                              {{/each}}
+
+                            </tbody>
+                          </table>
+                          </div>
+                       </form></div>
+                       <br>
+                    </div>
+                 </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+//initials
+var team = "{{team1.team}}";
+var contract = {{params.income}};
+var netcontract = {{team1.netIncome}};
+var taxRate = 1-{{team1.netIncome}}/{{params.income}}
+
+var contractLength = {{params.years}};
+var discountRate = {{params.discountrate}};
+//for graph and if statements
+var seasons = [];
+var payroll = [];
+var salarycap = [94000000, 102000000, 108000000, 109000000, 114000000];
+var taxthreshold = [113000000, 122000000, 130000000, 132000000, 139000000];
+
+//initial structuregross contract
+var structuredContract = [];
+var netStructuredContract = [];
+//table totals
+var grossTotal;
+var netTotal;
+var netPresentValue = [];
+
+
+/*
+** First, initialize the gross and net contract arrays
+**  These arrays will hold the state of the graph, etc
+*/
+  for(var i = 0; i < contractLength; i++)
+  {
+    var  perYearContract = contract/contractLength;
+    structuredContract.push(perYearContract);
+    console.log(1-taxRate)
+    netcontract = contract * (1-taxRate)
+    var netPerYearContract = netcontract/contractLength;
+    netStructuredContract.push(netPerYearContract)
+
+  }
+  console.log(structuredContract);
+  console.log(netStructuredContract);
+//main
+
+
+
+
+/*
+** Second, create the labels for the graph.  We need as many labels as there are years
+**
+*/
+setSeasonCategories(contractLength);
+// payroll = setTeamPayroll(contractLength);
+
+
+
+  //equalcontract
+//   if($('#equal-payment').is(':checked'))
+//   {
+//     for(var i = 0; i < contractLength; i++)
+//     {
+//       var  perYearContract = contract/contractLength;
+//       structuredContract.push(perYearContract);
+
+//       var netPerYearContract = netcontract/contractLength;
+//       netStructuredContract.push(netPerYearContract)
+
+//     }
+//   }
+//   else if($('#ip-payment').is(':checked'))
+//   {
+//
+//   }
+// }
+/*
+** Third, create the imputs under the the graph.  We need as many inputs as there are years
+** and we need to set the value to the gross and net contracts.  In addition, set the PV data.
+*/
+setSeasonInputs(structuredContract);
+var pv = setPV(netStructuredContract);
+setNetSeasonPV(pv);
+
+pv = setPV(structuredContract);
+setGrossSeasonPV(pv);
+
+
+/*
+** Sum everything up.
+**
+*/
+sumGrossAndNetSeasonTotals();
+
+function formatM(number){
+  var formatted = numeral(number).format('0,0');
+  console.log(formatted)
+  return formatted;
+}
+
+function setSeasonInputs(structuredContract){
+
+  for(i = 0; i < structuredContract.length; i++){
+    seasonNum = i ;
+    $("#grossseason-" + seasonNum.toString()).val(Math.round(structuredContract[i]).toString());
+    document.getElementById("grossseason-"+(i)).innerHTML = formatM(structuredContract[i]);
+    editNetStructuredContract(structuredContract[i], i);
+    document.getElementById("netseason-"+(i)).innerHTML = formatM(netStructuredContract[i]);
+  }
+}
+
+/*
+** On changing the contract weights we need to other contract data too
+**
+*/
+function editNetStructuredContract(grosspay ,elId){
+
+  var ratio = grosspay/contract;
+  var netPayment = ratio*netcontract;
+  //document.getElementById("netseason-"+ elId).innerHTML = formatM(netPayment);
+  // console.log(netPayment);
+
+  netStructuredContract[elId] = netPayment;
+}
+
+function sumStructuredContract(){
+  var ratio = grosspay/contract;
+  var netPayment = ratio*netcontract;
+
+  var arr = structuredContract;
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+
+            tot += arr[i];
+
+    }
+    grosstotal = tot;
+    document.getElementById("grosstotal").innerHTML = formatM(grosstotal);
+    //document.getElementById("nettotal").innerHTML = formatM(nettotal);
+    console.log("at ssC : " +arr);
+
+}
+
+function editStructuredContract(newcontract, elid){
+
+    structuredContract[elid] = newcontract;
+}
+
+
+//add season totals for table
+function sumGrossAndNetSeasonTotals(){
+    var arrgross, arrnet = [];
+    arrgross = structuredContract.slice(0);
+    arrnet = netStructuredContract.slice(0);
+   var totgross = 0;
+   var totnet = 0;
+
+    for(var i=0;i<arrgross.length;i++){
+            totgross += arrgross[i];
+    }
+    grossTotal = totgross;
+
+    for(var i=0;i<arrnet.length;i++){
+            totnet += arrnet[i];
+    }
+    console.log(arrnet);
+    document.getElementById("grosstotal").innerHTML= formatM(totgross);
+    if(contract != totgross){
+
+
+
+    }
+    document.getElementById("nettotal").innerHTML= formatM(totnet);
+
+}
+
+//set categories for graph
+function setSeasonCategories(years) {
+
+  seasons = [];
+
+   var year;
+   var month = new Date().getMonth();
+   for(i = 0; i < years; i++)
+   {
+    year = new Date().getFullYear() + i;
+     if (month < 2)
+     {
+       year = year - 1;
+     }
+   var season = year + "-" + (year + 1 - 2000) ;
+   season = season.toString();
+
+   seasons.push(season);
+   console.log(seasons);
+   }
+   return seasons;
+}
+
+
+
+// //get Team payroll for graph
+// function setTeamPayroll(contractLength){
+//   var payrollReturn = [];
+//   var json = '<%= raw @payrolls %>';
+//   var payrolls = JSON.parse(json);
+//
+//   $.each(payrolls, function(k, v) {
+//     var value
+//     if (v != null){
+//       value = v.replace('$','');
+//     } else{
+//       value = 0;
+//     }
+//     payrollReturn.push(parseInt(value));
+//     console.log(k + ' is ' + v);
+//     console.log(payrollReturn)
+//   });
+//
+//   if (payrollReturn.length > contractLength){
+//     payrollReturn = payrollReturn.slice(0,contractLength);
+//   }
+//
+//   return payrollReturn;
+// }
+
+
+$('#newcontract').change(function() {
+    var val = $(this).is(':checked');
+    chart.series[2].setVisible(val);
+});
+
+$('#currentpayroll').change(function(){
+    var val = $(this).is(':checked');
+    chart.series[0].setVisible(val);
+    chart.series[1].setVisible(val);
+    chart.series[3].setVisible(val);
+});
+
+
+$('.form-control.salarypayments').change(function() {
+  var arr = document.getElementsByName('salarypayments');
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+    }
+    //$().text(tot);
+    //document.getElementById(".grosstotal").textContent= "testtt";
+     document.getElementById("grosstotal").innerHTML = tot;
+});
+
+function setPV(contract){
+  var pvresult = 0;
+  var pvarr = [];
+  var pvyear = 0;
+
+  for(i = 0; i < contract.length; i++){
+    pvyear = contract[i]/Math.pow((1 + discountRate), i);
+    pvresult += pvyear;
+    pvarr.push(pvyear);
+  }
+  console.log(pvarr);
+  console.log(pvresult);
+
+  return [pvarr, pvresult];
+}
+
+function setNetPV(contract){
+
+  console.log(contract)
+  var pvresult = 0;
+  var pvarr = [];
+  var pvyear = 0;
+
+  console.log(discountRate)
+  console.log(taxRate)
+  console.log((1-taxRate) * contract[0])
+  console.log(1-0.4422)* contract[0]
+    for(i = 0; i < contractLength; i++){
+      netContract = contract[i]* (1-taxRate)
+      console.log("Year" + i + "Before:  " + netContract)
+      pvyear = netContract/Math.pow((1 + discountRate), i);
+
+      pvresult += pvyear;
+      console.log("Year" + i + "After: " + pvyear + "\n\n")
+      pvarr.push(pvyear);
+    }
+
+  console.log(pvarr);
+  console.log(pvresult);
+
+  return [pvarr, pvresult];
+}
+
+function setNetSeasonPV(pvdata){
+  seasonpv = pvdata[0];
+  totalpv = pvdata[1];
+
+  var i;
+  for(i = 0; i < seasonpv.length; i++){
+    document.getElementById("netpvseason-"+(i)).innerHTML = formatM(seasonpv[i]);
+  }
+  document.getElementById("netpvtotal").innerHTML = formatM(totalpv);
+}
+
+
+function setGrossSeasonPV(pvdata){
+  seasonpv = pvdata[0];
+  totalpv = pvdata[1];
+  var i;
+  for(i = 0; i < seasonpv.length; i++){
+    document.getElementById("grosspvseason-"+(i)).innerHTML = formatM(seasonpv[i]);
+  }
+  document.getElementById("grosspvtotal").innerHTML = formatM(totalpv);
+}
+
+function getStructuredContractTotal(){
+   var arrgross = [];
+    arrgross = structuredContract.slice(0);
+
+   var sumContract = 0;
+
+    for(var i=0;i<arrgross.length;i++){
+            sumContract += arrgross[i];
+    }
+
+  return sumContract;
+}
+
+function getGrossContract(){
+
+  return contract;
+}
+
+function getContractLength(){
+
+  return contractLength;
+}
+
+
+function showWarning(remainder) {
+  document.getElementById("totalWarning").innerHTML= "<i class='fa fa-exclamation-circle' aria-hidden='true'/> Total value not equal to contract. <br>Remainder: "+ remainder +"</i>"
+  if ($('#distributeWarning').hasClass('hide')) {
+      $('#distributeWarning').removeClass('hide');
+  };
+
+}
+
+function hideWarning() {
+  document.getElementById("totalWarning").innerHTML= ""
+  if ($('#distributeWarning').hasClass('hide')) return;
+  $('#distributeWarning').addClass('hide');
+}
+
+function redistribute(){
+
+  var contract = getGrossContract();
+  var sumContract = getStructuredContractTotal();
+  var years = getContractLength();
+  var distribute = 0;
+  var difference = 0;
+
+  if (contract != sumContract){
+    difference = contract - sumContract;
+    distribute = difference / years;
+      // Save it!
+    for(var i=0;i<structuredContract.length;i++){
+      var newcontract = structuredContract[i] + distribute;
+
+      editStructuredContract(newcontract, i);
+      editNetStructuredContract(newcontract, i);
+
+
+    chart.series[2].data[i].update({
+      y: newcontract
+    });
+      refreshTableandChart();
+    }
+  }
+  hideWarning();
+}
+
+function refreshTableandChart(){
+
+    for(var i=0; i < structuredContract.length; i++){
+
+    $('#grossseason-'+(i)).val(structuredContract[i]);
+    document.getElementById("netseason-"+(i)).innerHTML = formatM(netStructuredContract[i]);
+
+    sumGrossAndNetSeasonTotals();
+    var pv = setNetPV(structuredContract);
+    setNetSeasonPV(pv);
+    var pv2 = setPV(structuredContract);
+    setGrossSeasonPV(pv2);
+
+    }
+
+}
+
+
+ //create chart
+var chart = new Highcharts.Chart({
+
+  chart: {
+    renderTo: 'container',
+    animation: false
+  },
+  title: {
+      text: ''
+    },
+
+  xAxis: {
+    categories: seasons,
+    title: {
+      text: 'Season'
+    }
+  },
+
+
+  yAxis: [{
+    title: {
+      text: '$ Dollars'
+    }
+  }],
+
+  plotOptions: {
+    series: {
+      borderColor: '#2c3e50',
+      // point: {
+      //   events: {
+      //     drag: function(e) {
+      //       $('#drag').html(
+      //         'Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Highcharts.numberFormat(e.y, 0,'','') + '</b>');
+      //
+      //         var i=0, len = seasons.length;
+      //         for(;i<len;i++) if (this.category ==  seasons[i]) break;
+      //
+      //         editStructuredContract(e.y, i);
+      //         editNetStructuredContract(e.y, i);
+      //
+      //       refreshTableandChart();
+      //
+      //       var total  = getStructuredContractTotal();
+      //       var origcontract = getGrossContract();
+      //
+      //       if (origcontract != total){
+      //         showWarning();
+      //       } else {
+      //           hideWarning();
+      //       }
+      //     },
+      //     drop: function() {
+      //       $('#drop').html(
+      //         'In <b>' + this.series.name + '</b>, <b>' + this.category + '</b> was set to <b>' + Highcharts.numberFormat(this.y, 0,'','') + '</b>');
+      //     }
+      //   }
+      // },
+      stickyTracking: false
+    },
+    column: {
+      stacking: 'normal'
+    },
+    line: {
+      cursor: 'ns-resize'
+    }
+  },
+
+  tooltip: {
+    yDecimals: 2
+  },
+
+ series: [{
+  //   name: 'Salary Cap',
+  //   data: [94000000, 102000000, 108000000, 109000000, 114000000],
+  //   visible: true
+  // }, {
+  //   name: 'Tax Cap',
+  //   data: [113000000, 122000000, 130000000, 132000000, 139000000]
+  // }, {
+    name: 'New Contract',
+    data: structuredContract.slice(0),
+     visible: true,
+    //draggableY: true,
+   // dragMinY: 0,
+    type: 'column',
+    minPointLength: 2,
+    color: 'whitesmoke'
+  }, {
+    name: 'Current Payroll',
+    data: payroll,
+    visible: true,
+    //draggableX: true,
+    draggableY: false,
+    dragMinY: 0,
+    type: 'column',
+    minPointLength: 2,
+    color: '#2c3e50'
+  }]
+
+}, function(chart) {
+
+  $('.salarypayments').on('change', function(e){
+    // this - the current el
+    var elId = this.id;
+    var num = +elId.split('-')[1];
+    // num--;
+    console.log(num)
+    console.log(this.value)
+    var val = parseInt(this.value) || 0;
+    chart.series[0].data[num].update({
+      y: val
+    });
+
+    editStructuredContract(val, num);
+    editNetStructuredContract(val, num);
+    var total  = getStructuredContractTotal();
+    var origcontract = getGrossContract();
+    refreshTableandChart();
+
+
+
+     if (origcontract != total){
+       remainder = origcontract - total;
+       console.log("in loo")
+       showWarning(remainder);
+
+
+     } else {
+        hideWarning();
+     }
+  })
+});
+
+
+
+    // $(document).on('click', '#salaries td', function () {
+    //         var html = $(this).text()
+    //         var input = $('<input type="text" />');
+    //         input.val(html);
+    //         $(this).replaceWith(input);
+    //         $('#salaries input').focus();
+    // });
+    //
+    // $(document).on('blur', function(){
+    //     $(this).replaceWith('<td id="{{grossseasonid}}">'+this.value+'</td>')
+    // })
+
+    $(document).on('click', '#pdf-gen',function(e){
+
+    e.preventDefault();
+    // window.open('print', 'Report');
+    var team1 = "{{params.team1}}";
+    var team2 = "{{params.team2}}"
+    var contract = {{params.income}};
+    var contractLength = {{params.years}};
+    var discountRate = {{params.discountrate}}
+    var taxlaw = "{{params.taxlaw}}";
+
+    var data = { "contract" : {{params.income}}, discountrate: {{params.discountrate}}, "taxlaw": "{{params.taxlaw}}",
+    team1: "{{params.team1}}", team2: "{{params.team2}}", years: "{{params.years}}"};
+    $.ajax({
+        type: "POST",
+        url: "/print",
+        processData: false,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function(r) {
+
+          console.log(r)
+          setTimeout(function(){
+            console.log(r)
+            e.preventDefault();  //stop the browser from following
+            window.location.href = r;
+          },2500);
+        }
+      });
+    });
+</script>

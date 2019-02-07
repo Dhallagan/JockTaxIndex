@@ -1,0 +1,1242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta lang="UTF-8">
+	<title>Page print</title>
+	 <link rel="stylesheet" href="/css/vendor/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="/css/main.css"> -->
+<script src="/js/lib/jquery.js"></script>
+<script src="/js/lib/bootstrap.js"></script>
+
+<script src="/js/main.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+	<link rel="stylesheet" href="css/pdf-style.css">
+	<style type="text/css">
+		/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+		/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+		html {
+		    font-family: times;
+		    line-height: 1.15;
+		    -ms-text-size-adjust: 100%;
+		    -webkit-text-size-adjust: 100%
+		}
+
+		.page {
+		  position: relative;
+		  height: 11in;
+		  width: 8.5in;
+		  display: block;
+		  background: white;
+		  page-break-after: auto;
+		  overflow: hidden;
+		}
+
+		body {
+		    margin: 0;
+		    font-size: 10px;
+		}
+
+		article, aside, footer, header, nav, section {
+		    display: block
+		}
+
+		h1 {
+		    font-size: 2em;
+		    margin: .67em 0
+		}
+
+		figcaption, figure, main {
+		    display: block
+		}
+
+		figure {
+		    margin: 1em 40px
+		}
+
+		hr {
+		    box-sizing: content-box;
+		    height: 0;
+		    overflow: visible
+		}
+
+		pre {
+		    font-family: monospace, monospace;
+		    font-size: 1em
+		}
+
+		a {
+		    background-color: transparent;
+		    -webkit-text-decoration-skip: objects
+		}
+
+		a:active, a:hover {
+		    outline-width: 0
+		}
+
+		abbr[title] {
+		    border-bottom: none;
+		    text-decoration: underline;
+		    text-decoration: underline dotted
+		}
+
+		b, strong {
+		    font-weight: inherit;
+		    font-weight: bolder
+		}
+
+		code, kbd, samp {
+		    font-family: monospace, monospace;
+		    font-size: 1em
+		}
+
+		dfn {
+		    font-style: italic
+		}
+
+		mark {
+		    background-color: #ff0;
+		    color: #000
+		}
+
+		small {
+		    font-size: 80%
+		}
+
+		sub, sup {
+		    font-size: 75%;
+		    line-height: 0;
+		    position: relative;
+		    vertical-align: baseline
+		}
+
+		sub {
+		    bottom: -.25em
+		}
+
+		sup {
+		    top: -.5em
+		}
+
+		audio, video {
+		    display: inline-block
+		}
+
+		audio:not([controls]) {
+		    display: none;
+		    height: 0
+		}
+
+		img {
+		    border-style: none
+		}
+
+		svg:not(:root) {
+		    overflow: hidden
+		}
+
+		button, input, optgroup, select, textarea {
+		    font-family: sans-serif;
+		    font-size: 100%;
+		    line-height: 1.15;
+		    margin: 0
+		}
+
+		button, input {
+		    overflow: visible
+		}
+
+		button, select {
+		    text-transform: none
+		}
+
+		[type=reset], [type=submit], button, html [type=button] {
+		    -webkit-appearance: button
+		}
+
+		[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+		    border-style: none;
+		    padding: 0
+		}
+
+		[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+		    outline: 1px dotted ButtonText
+		}
+
+		fieldset {
+		    border: 1px solid silver;
+		    margin: 0 2px;
+		    padding: .35em .625em .75em
+		}
+
+		legend {
+		    box-sizing: border-box;
+		    color: inherit;
+		    display: table;
+		    max-width: 100%;
+		    padding: 0;
+		    white-space: normal
+		}
+
+		progress {
+		    display: inline-block;
+		    vertical-align: baseline
+		}
+
+		textarea {
+		    overflow: auto
+		}
+
+		[type=checkbox], [type=radio] {
+		    box-sizing: border-box;
+		    padding: 0
+		}
+
+		[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+		    height: auto
+		}
+
+		[type=search] {
+		    -webkit-appearance: textfield;
+		    outline-offset: -2px
+		}
+
+		[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+		    -webkit-appearance: none
+		}
+
+		::-webkit-file-upload-button {
+		    -webkit-appearance: button;
+		    font: inherit
+		}
+
+		details, menu {
+		    display: block
+		}
+
+		summary {
+		    display: list-item
+		}
+
+		canvas {
+		    display: inline-block
+		}
+
+		[hidden], template {
+		    display: none
+		}
+
+		*, :after, :before {
+		    box-sizing: border-box
+		}
+
+		button, input, select, textarea {
+		    font-family: inherit;
+		    font-size: inherit;
+		    line-height: inherit
+		}
+
+		a {
+		    color: #337ab7;
+		    text-decoration: none
+		}
+
+		a:focus, a:hover {
+		    color: #23527c;
+		    text-decoration: underline
+		}
+
+		a:focus {
+		    outline: thin dotted;
+		    outline: 5px auto -webkit-focus-ring-color;
+		    outline-offset: -2px
+		}
+
+		figure {
+		    margin: 0
+		}
+
+		img {
+		    vertical-align: middle
+		}
+
+		.container {
+		    margin-right: auto;
+		    margin-left: auto;
+		    padding-left: 15px;
+		    padding-right: 15px;
+		    width: 100%
+		}
+
+		.table-header {
+		  background-color: #2c3e50;
+		  color: white;
+		}
+
+		table {
+		  height: auto;
+		  border-collapse: collapse;
+		}
+		.table-gn th {
+		  text-align: right;
+		  padding-right: 10px;
+		}
+		.table-rank {
+		  text-align: center;
+		  padding-right: 10px;
+		  float: left;
+		}
+
+		.table-ranking {
+		  margin-top: 10%;
+		  margin-bottom: 10%;
+		}
+
+		.table-gn td {
+		  text-align: right;
+		  padding-right: 10px;
+		  width: 90px;
+		}
+		.table-contract td {
+
+		  padding-right: 10px;
+		}
+
+		.table-gn .lead {
+		  text-align: left;
+		  padding-right: 10px;
+		}
+
+		.table-gn .indent {
+		  text-align: left;
+		  padding-left: 10px;
+		}
+
+		.title-page {
+		  margin: auto;
+		    width: 50%;
+		    margin-top: 30%;
+		    /*border: 3px solid #2c3e50;*/
+		    padding: 10px;
+		    text-align: center;
+		}
+
+		.container-fluid {
+		    margin-right: auto;
+		    margin-left: auto;
+		    padding-left: 15px;
+		    padding-right: 15px
+		}
+
+		.row {
+		    margin: 0
+		}
+
+		.col-sm-1,
+		    .col-sm-2,
+		    .col-sm-3,
+		    .col-sm-4,
+		    .col-sm-5,
+		    .col-sm-6,
+		    .col-sm-7,
+		    .col-sm-8,
+		    .col-sm-9,
+		    .col-sm-10,
+		    .col-sm-11,
+		    .col-sm-12 {
+		        float: left
+		    }
+		    .col-sm-12 {
+		        width: 100%
+		    }
+		    .col-sm-11 {
+		        width: 91.66666667%
+		    }
+		    .col-sm-10 {
+		        width: 83.33333333%
+		    }
+		    .col-sm-9 {
+		        width: 75%
+		    }
+		    .col-sm-8 {
+		        width: 66.66666667%
+		    }
+		    .col-sm-7 {
+		        width: 58.33333333%
+		    }
+		    .col-sm-6 {
+		        width: 50%
+		    }
+		    .col-sm-5 {
+		        width: 41.66666667%
+		    }
+		    .col-sm-4 {
+		        width: 33.33333333%
+		    }
+		    .col-sm-3 {
+		        width: 25%
+		    }
+		    .col-sm-2 {
+		        width: 16.66666667%
+		    }
+		    .col-sm-1 {
+		        width: 8.33333333%
+		    }
+		    .col-sm-pull-12 {
+		        right: 100%
+		    }
+		    .col-sm-pull-11 {
+		        right: 91.66666667%
+		    }
+		    .col-sm-pull-10 {
+		        right: 83.33333333%
+		    }
+		    .col-sm-pull-9 {
+		        right: 75%
+		    }
+		    .col-sm-pull-8 {
+		        right: 66.66666667%
+		    }
+		    .col-sm-pull-7 {
+		        right: 58.33333333%
+		    }
+		    .col-sm-pull-6 {
+		        right: 50%
+		    }
+		    .col-sm-pull-5 {
+		        right: 41.66666667%
+		    }
+		    .col-sm-pull-4 {
+		        right: 33.33333333%
+		    }
+		    .col-sm-pull-3 {
+		        right: 25%
+		    }
+		    .col-sm-pull-2 {
+		        right: 16.66666667%
+		    }
+		    .col-sm-pull-1 {
+		        right: 8.33333333%
+		    }
+		    .col-sm-pull-0 {
+		        right: auto
+		    }
+		    .col-sm-push-12 {
+		        left: 100%
+		    }
+		    .col-sm-push-11 {
+		        left: 91.66666667%
+		    }
+		    .col-sm-push-10 {
+		        left: 83.33333333%
+		    }
+		    .col-sm-push-9 {
+		        left: 75%
+		    }
+		    .col-sm-push-8 {
+		        left: 66.66666667%
+		    }
+		    .col-sm-push-7 {
+		        left: 58.33333333%
+		    }
+		    .col-sm-push-6 {
+		        left: 50%
+		    }
+		    .col-sm-push-5 {
+		        left: 41.66666667%
+		    }
+		    .col-sm-push-4 {
+		        left: 33.33333333%
+		    }
+		    .col-sm-push-3 {
+		        left: 25%
+		    }
+		    .col-sm-push-2 {
+		        left: 16.66666667%
+		    }
+		    .col-sm-push-1 {
+		        left: 8.33333333%
+		    }
+		    .col-sm-push-0 {
+		        left: auto
+		    }
+		    .col-sm-offset-12 {
+		        margin-left: 100%
+		    }
+		    .col-sm-offset-11 {
+		        margin-left: 91.66666667%
+		    }
+		    .col-sm-offset-10 {
+		        margin-left: 83.33333333%
+		    }
+		    .col-sm-offset-9 {
+		        margin-left: 75%
+		    }
+		    .col-sm-offset-8 {
+		        margin-left: 66.66666667%
+		    }
+		    .col-sm-offset-7 {
+		        margin-left: 58.33333333%
+		    }
+		    .col-sm-offset-6 {
+		        margin-left: 50%
+		    }
+		    .col-sm-offset-5 {
+		        margin-left: 41.66666667%
+		    }
+		    .col-sm-offset-4 {
+		        margin-left: 33.33333333%
+		    }
+		    .col-sm-offset-3 {
+		        margin-left: 25%
+		    }
+		    .col-sm-offset-2 {
+		        margin-left: 16.66666667%
+		    }
+		    .col-sm-offset-1 {
+		        margin-left: 8.33333333%
+		    }
+		    .col-sm-offset-0 {
+		        margin-left: 0
+		    }
+		}
+
+
+		.clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .row:after, .row:before {
+		    content: " ";
+		    display: table
+		}
+
+		.clearfix:after, .container-fluid:after, .container:after, .row:after {
+		    clear: both
+		}
+
+		section {
+		    padding: 5px 20px
+		}
+
+		.row [class*=col-]:first-child {
+		    padding-left: 0
+		}
+
+		.row [class*=col-]:last-child {
+		    padding-right: 0
+		}
+
+
+
+		.page-logo {
+		    max-height: 50px;
+		    padding: 0px 0;
+		    border-top: 7px solid #2c3e50
+		}
+
+		.page-logo img {
+		    display: block;
+		    height: auto;
+		    max-height: 40px;
+		    margin: 0 0 0 auto
+		}
+
+		.page__title {
+		    font-size: 16px;
+		    font-weight: 400;
+		    margin-top: 5px;
+		    margin-bottom: 0
+		}
+
+		.page__subtitle {
+		    font-size: 12px;
+		    font-weight: 700;
+		    margin: 2px 0
+		}
+
+		.page__quest {
+		    font-size: 12px;
+		    font-weight: 400;
+		    padding-left: 0
+		}
+
+		.page__quest span {
+		    display: inline-block;
+		    min-width: 50px;
+		    border-bottom: 2px solid #000;
+		    vertical-align: bottom;
+		    margin: 0 2px
+		}
+
+		.page__item {
+		    border-bottom: 1px solid #000
+		}
+
+		.page__item-title {
+		    font-size: 12px;
+		    font-weight: 400;
+		    margin: 2px 0
+		}
+
+		.page__field {
+		    margin: 4px 0;
+		    min-height: 15px;
+		    max-height: 15px;
+		    font-size: 12px;
+		    padding-top: 5px;
+		    font-style: italic
+		}
+
+		.paragraph {
+		  margin-bottom: 100px;
+		}
+		.page__check input {
+		    display: none
+		}
+
+		.page__check label {
+		    padding-left: 25px;
+		    position: relative;
+		    margin-right: 35px;
+		    font-size: 14px;
+		    color: #253b6d
+		}
+
+		.page__check label:before {
+		    content: '';
+		    position: absolute;
+		    width: 18px;
+		    height: 18px;
+		    border: 1px solid #253b6d;
+		    top: 0;
+		    left: 0
+		}
+
+		.page__check input:checked+label:before {
+		    box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 8px #253b6d
+		}
+
+		.page__info {
+		    font-size: 14px
+		}
+
+		.page-2 .page__item {
+		    position: relative
+		}
+
+		.page-2 .page__item:before {
+		    left: 0
+		}
+
+		.page-2 .page__item:after, .page-2 .page__item:before {
+		    content: '';
+		    position: absolute;
+		    height: 50%;
+		    width: 1px;
+		    bottom: 0;
+		    background-color: #000
+		}
+
+		.page-2 .page__item:after {
+		    right: 0
+		}
+
+		.page-2 .no-l-pseudo:before, .page-2 .no-pseudo:after, .page-2 .no-pseudo:before, .page-2 .no-r-pseudo:after {
+		    display: none
+		}
+
+		.five-elem .page__item {
+		    width: 20%
+		}
+
+		.checkbox {
+		    margin: 15px auto;
+		    text-align: center
+		}
+
+		.checkbox input {
+		    display: none
+		}
+
+		.checkbox label {
+		    padding-left: 25px;
+		    position: relative;
+		    margin-right: 35px;
+		    font-size: 10px;
+		    color: #253b6d
+		}
+
+		.checkbox label:before {
+		    content: '';
+		    position: absolute;
+		    width: 8px;
+		    height: 8px;
+		    border: 1px solid #253b6d;
+		    top: 0;
+		    left: 0
+		}
+
+		.checkbox input:checked+label:before {
+		    box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 8px #253b6d
+		}
+
+		.chart .one  {
+		   display: inline-block;
+		   font: 12px sans-serif;
+		   background-color: #2c3e50;
+		   text-align: right;
+		   padding-top: 3px;
+		   margin-top: 3px;
+		   color: white;
+		   }
+		   .chart .two  {
+		   display: inline-block;
+		   font: 12px sans-serif;
+		   background-color: whitesmoke;
+		   text-align: right;
+		   outline: 3px solid #2c3e50;
+		   outline-offset: -3px;
+		   padding-top: 3px;
+		   margin-top: 3px;
+		   color: #2c3e50;
+		   }
+		   .team{
+		   font: 12px sans-serif;
+		   float: left;
+		   color: whitesmoke;
+		   padding-left: 5px;
+		   }
+		   .info{
+		   font: 12px sans-serif;
+		   text-align: right;
+		   padding-right: 5px;
+		   }
+		   .btn-primary {
+		  color: #fff;
+		  background-color: #2c3e50;
+		  border-color: #2e6da4;
+		  }
+			.pull-right {
+				float: right;
+			}
+
+
+
+		@media print {
+		    .page-break {
+		        display: block;
+		        page-break-before: always
+		    }
+		    .page__title {
+		        font-size: 14px
+		    }
+		    .page__subtitle {
+		        font-size: 10px
+		    }
+		    .page__quest {
+		        font-size: 12px
+		    }
+		    .page__item-title {
+		        font-size: 10px;
+		        max-height: 11px
+		    }
+		    .page__field {
+		        padding-top: 8px
+		    }
+		    .page__field, .page__info {
+		        font-size: 12px
+		    }
+		    .page {
+		     margin: 0;
+		     height: 100%;
+		     width: 100%;
+		   }
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="page">
+	<div class="page-logo page-break"><img src="" alt=""></div>
+	<div class="page">
+		<section>
+			<br>
+			<br>
+			<div class="title-page">
+				<img src="" alt="">
+				<h1>Jock Tax Index</h1>
+				<h2>Kirk Cousins</h2>
+				<br>
+
+				<h2>AFP Consulting, LLC</h2>
+			</div>
+		</section>
+	</div>
+	<div class="page">
+	<div class="page-logo page-break"><img src="" alt=""></div>
+	<div class="page">
+		<section>
+			<div class="col-lg-9 col-md-9 col-sm-12">
+	<div class="panel">
+			<div class="panel-body">
+				<h2>Analysis</h2>
+				<div class="panel_s">
+					 <div class="panel-body">
+							<div class="row">
+								 <div class="col-lg-12">
+
+									 <div class="tab-content summary">
+										 <div class="col-lg-12">
+												<div class="row">
+															<h3> Summary </h3>
+															<p>In this scenario, the greatest after-tax value is that of the Jacksonville Jaguars with a value of
+																$73,805,923, which is $5,538,232  greater than that of Washington's $69,251,831 after tax value. Arizona also has a slight tax advantage over
+																Washington, resulting in $984,140 more net income.  New York, Los Angeles, and San Francisco all have
+																higher tax burdens resulting in less net income.  While New York's is a modest $2,224,164 less than Washington,
+																the difference starts to become real if playing for San Francisco or Los Angeles, as the net income difference
+															  exceeds $5,000,000.  </p>
+
+
+											 <div class="col-sm-12">
+													<div class="row">
+																<div class="col-lg-12 ">
+
+																	 <div class="col-lg-12">
+																			<div class="row">
+																				<hr>
+																						<h3>Tax Implications by Year and Lifetime of Contract</h3>
+																			<table class="table-gn" width="100%">
+																				<tbody>
+																					 <tr class="table-header">
+																							<th>
+																							</th>
+																							<th colspan="2"><center>Year 1</center></th>
+																							<th>Year 2</th>
+																							<th>Year 3</th>
+																							<th>Year 4</th>
+																							<th>Year 5</th>
+																							<th>Total</th>
+																					 </tr>
+																					 <tr class="table-header">
+																							<td></td>
+																							<td>Bonus</td>
+																							<td>Salary</td>
+																							<td></td>
+																							<td></td>
+																							<td></td>
+																							<td colspan="2"></td>
+																					 </tr>
+																					 {{#each teams}}
+																					 <tr><td class="lead"><b>{{team}}</b></td></tr>
+																					 <tr>
+																						 <td class="indent">Income</td>
+																						 <td>39,000,000</td>
+																						 {{#each term}}
+																						 <td>{{fnumber signingBonus}}</td>
+																						 {{/each}}
+
+																						 {{#each termResults}}
+																						 <td>{{fnumber income}}</td>
+																						 {{/each}}
+																						 <td>{{fnumber totals.allIncome}}</td>
+																					 </tr>
+																					 <tr>
+																						 <td class="indent">Net</td>
+																						 <td> {{fnumber totals.signingBonusIncome}}</td>
+																						 {{#each termResults}}
+																						 <td>{{fnumber netIncome}}</td>
+																						 {{/each}}
+																						 <td>{{fnumber totals.allNetIncome}}</td>
+																					 </tr>
+																					 {{/each}}
+																				 </tbody>
+																					</table>
+																			</div>
+																	 </div>
+																</div>
+															</div>
+																</div>
+																</div>
+																</div>
+																</section>
+																</div>
+																<div class="page">
+																<div class="page-logo page-break"><img src="" alt=""></div>
+																<div class="page">
+																	<section>
+																<!-- <h4> &nbsp</h4> -->
+																<div class="col-sm-12">
+																	<hr>
+																	 <h3>Scenarios Ranked By Most Net Income Received</h3>
+																	 <p>The following rankings reflect the comparable tax implications based on a Washington Redskins 5 year contract of $128,000,000.</p>
+																	<div class="row">
+																		 <div class="col-sm-12">
+																			 <table class="table-rank" width="100%">
+
+																					<tbody>
+																					<tr class="table-header">
+																						<th>Rank</th>
+																						<th>Team</th>
+
+																						<th>Difference</th>
+																						<th>Matched</th>
+
+																					</tr>
+
+																					{{#each teams}}
+																					<tr>
+																						<td>{{counter @index}}</td>
+																						<td style="text-align:left; padding-left:20px;">{{team}}</td>
+
+																						<td style="text-align:right;">{{fCurrency totals.allDifference}}</td>
+																						<td style="text-align:right;">{{fCurrency totals.allMatchedContract}}</td>
+																					</tr>
+																					{{/each}}
+																				</tbody>
+																			</table>
+																		 </div>
+																	 </div>
+	<!-- <h4> &nbsp</h4> -->
+																	 <div class=" col-sm-12">
+																		 <hr>
+																		<div class="panel">
+																				<div class="panel-body">
+																					<!-- <h2>Tax Analysis<span><p>Gordon Heyward</p></span></h2> -->
+																				<h3>Value After Tax</h3>
+																					<div class="panel_s">
+																						 <div class="panel-body">
+																								<div class="row">
+																									 <div class="col-lg-12">
+
+																										 <div class="tab-content summary">
+																													 <div class="tab-pane active page-break" id="0" role="tabpanel">
+																														 {{#each teams}}
+																														 <div class="chart">
+																															 <!-- <div class="one" style="width: {{gpct taxRate}};"><span class="team">{{team}}</span><span class="info">${{fnumber netIncome}}</span></div>
+																															 <div class="two" style="width: {{pct taxRate}};"><span class="info">${{fnumber totalTax}}</span></div> -->
+																															 <div class="one" style="width: {{gpct totals.avgTaxRate}};"><span class="team">{{team}}</span><span class="info">${{fnumber totals.allNetIncome}}</span></div>
+
+																														 </div>
+																														 {{/each}}
+
+																																											 </tbody>
+																																										 </table>
+																																								 </div>
+																																							</div>
+																																					 </div>
+																																				</div>
+
+
+
+
+
+																															</div>
+																													</div>
+																											 </div>
+																									 </div>
+																									</div>
+																</div>
+
+														 </div>
+													 </div>
+
+
+
+									 </div>
+							 </div>
+							</div>
+					 </div>
+				</div>
+			</div>
+		</section>
+	</div>
+	</div>
+	</div>
+</div>
+
+
+
+
+
+<!--
+Individual team reports
+-->
+
+{{#each teams}}
+<div class="page">
+<div class="page-logo page-break"><img src="" alt=""></div>
+<div class="page">
+	<section>
+
+
+
+
+		<div class="row">
+			<div class="col-sm-12 ">
+					<h2>{{team}}</h2>
+				 <h4 class="bold no-margin">Summary</h4>
+				 <hr>
+				 <div class="col-sm-12">
+						<div class="row">
+							<p> Given a gross contract of ${{fnumber totals.allIncome}}, a player will make ${{fnumber totals.allNetIncome}}
+								 if signing with the {{team}} for a {{years}} year contract.
+							</p>
+						</div>
+				 </div>
+			</div>
+		</div>
+
+	 <div class="row">
+			<div class="col-lg-4 col-sm-4 project-overview-column text-analysis__item-4">
+				 <div class="row">
+						<div class="col-lg-12">
+							 <h4 class="bold no-margin">Inputs</h4>
+							 <hr>
+							 <div class="row">
+									<table class="table table-borded no-margin" width="100%">
+										 <tbody>
+												<tr>
+													 <td class="bold">Contract Amount</td>
+													 <td>{{fnumber totals.allIncome}}</td>
+												</tr>
+												<tr>
+													 <td class="bold">Years</td>
+													 <td>{{years}}</td>
+												</tr>
+												<tr>
+													 <td class="bold">Offer From</td>
+													 <td>{{team}}</td>
+												</tr>
+												<!-- <tr>
+													 <td class="bold">Competing Offer</td>
+													 <td>{{team}}</td>
+												</tr> -->
+												<!-- <tr>
+													 <td class="bold">Discount Rate</td>
+													 <td>{{params.discountrate}}</td>
+												</tr> -->
+												{{#if params.escrow}}
+												<tr>
+													 <td class="bold">Escrow</td>
+													 <td>{{pct params.escrow}}</td>
+												</tr>
+												{{/if}}
+										 </tbody>
+									</table>
+							 </div>
+						</div>
+				 </div>
+			</div>
+			<div class="col-lg-8 col-sm-8 col-sm-8 text-analysis__item-4">
+				 <h4 class="bold no-margin">Results</h4>
+				 <hr>
+
+						<div class="col-lg-1 col-sm-12 comparison__item" {{#gt t1.netIncome netIncome}}{{else}}style="border: 4px solid #ecf0f1"{{/gt}}>
+
+							 <!--Matched Contract -->
+							 <!--<h3 class="no-margins">-->
+							 <!--   <span class="team2-matchcontract">-->
+							 <!--   $5,362,757-->
+							 <!--   </span>-->
+							 <!--</h3>-->
+							 <table class="table table-borded no-margin table-contract" width="100%">
+									<tbody>
+										 <tr>
+												<td>
+													 Gross
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber totals.allIncome}}
+													 </span></strong></span>
+												</td>
+												<td>
+													 AAV
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber totals.grossAAV}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+										 <tr>
+												<td>
+													 Net
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-aav">
+
+														 ${{fnumber totals.netIncome}}
+													 </span></strong></span>
+												</td>
+												<td>
+													 Net AAV
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-proposal">
+													 ${{fnumber totals.netAAV}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+										 <tr>
+												<td>
+													 Tax Rate
+													 <span class="pull-right">
+													 <strong>
+													 <span class="team1-avgtaxrate">
+														 {{pct totals.avgTaxRate}}
+													 </span></strong></span>
+												</td>
+										 </tr>
+									</tbody>
+							 </table>
+
+						</div>
+				 </div>
+			<!-- </div> -->
+	 </div>
+
+
+
+	 <div class="row">
+				 <div class="col-lg-12">
+						<div class="row">
+							 <div class="col-sm-6">
+									<h4 class="text-center"><center>Net Income</center></h4>
+							 </div>
+							 <div class="col-sm-6">
+									<h4 class="text-center"><center>Taxes</center></h4>
+							 </div>
+
+							 <div class="chart">
+									<div class="one" style="width: {{gpct totals.avgTaxRate}};"><span class="team">{{team}}</span><span class="info">${{fnumber totals.allNetIncome}}</span></div>
+									<div class="two" style="width: {{pct totals.avgTaxRate}};"><span class="info">${{fnumber totals.allTax}}</span></div>
+							 </div>
+						</div>
+				 </div>
+	 </div>
+	 <h3>&nbsp; </h3>
+
+<h3>&nbsp; </h3>
+		<div class="row">
+	 <div class="col-lg-12">
+			<h4 class="bold no-margin">Tax Breakdown</h4>
+			<hr>
+			<table class="table" width="100%">
+					 <tbody>
+							<tr>
+								 <td colspan="2">
+								 </td>
+
+								 <th scope="col" style="text-align:right;">
+										<h4>{{team}}</h4>
+								 </th>
+							</tr>
+							<tr>
+								 <td colspan="2">
+										Gross Income
+								 </td>
+
+								 <td align="right">
+										${{fnumber totals.allIncome}}
+								 </td>
+							</tr>
+							<tr>
+								{{#if params.escrow}}
+								<tr>
+									 <td>
+											<spacer height="1" type="block" width="30"></spacer>
+									 </td>
+									 <td>- Escrow </td>
+									 <!-- <td align="right">${{difference params.income "-" t1.income "+" 0}}</td> -->
+									 <td align="right">${{difference params.income "-" income "+" 0}}</td>
+								</tr>
+								{{/if}}
+								 <td>
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Deductions </td>
+								 <!-- <td align="right">${{fnumber t1.deductions}}</td> -->
+								 <td align="right">${{fnumber totals.deductions}}</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									 Taxable Income
+								</td>
+								 <!-- <td align="right">${{fnumber t1.taxableincome}}</td> -->
+								 <td align="right">${{fnumber totals.taxableincome}}</td>
+							</tr>
+							<tr>
+								 <td colspan="5" style="height:0;padding:0; ">
+										<span style="display:block; width:5px; height:10px;">
+										</span>
+								 </td>
+							</tr>
+							<tr>
+								 <td>
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Federal </td>
+								 <!-- <td align="right">${{fnumber t1.federalTax}}</td> -->
+								 <td align="right">${{fnumber totals.federalTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- State</td>
+								 <!-- <td align="right">${{fnumber t1.stateTax}}</td> -->
+								 <td align="right">${{fnumber totals.stateTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- City</td>
+								 <!-- <td align="right">${{fnumber t1.cityTax}}</td> -->
+								 <td align="right">${{fnumber totals.cityTax}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td>- Medicare</td>
+								 <!-- <td align="right">${{fnumber t1.medicare}}</td> -->
+								 <td align="right">${{fnumber totals.medicare}}</td>
+							</tr>
+							<tr>
+								 <td class="yfnc_tabledata1" width="30">
+										<spacer height="1" type="block" width="30"></spacer>
+								 </td>
+								 <td style="border-bottom:1pt solid black;">-Social Security</td>
+								 <!-- <td style="border-bottom:1pt solid black;" align="right">${{fnumber t1.socialSecurity}}</td> -->
+								 <td style="border-bottom:1pt solid black;" align="right">${{fnumber totals.socialSecurity}}</td>
+							</tr>
+							<tr>
+								 <td colspan="2">
+										Net Income
+								 </td>
+								 <!-- <td align="right">${{fnumber t1.netIncome}}</td> -->
+								 <td align="right">${{fnumber totals.allNetIncome}}</td>
+							</tr>
+					 </tbody>
+				</table>
+			 </div>
+		</div>
+	</div>
+	</section>
+</div>
+
+{{/each}}
+
+	</section>
+
+</body>
+
+</html>
