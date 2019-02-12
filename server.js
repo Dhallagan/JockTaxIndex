@@ -35,7 +35,7 @@ var app = express();
 app.use("/public",express.static(path.join(__dirname, 'public')));
 
 
-mongoose.connect(process.env.MONGODB);
+mongoose.connect(process.env.MONGODB, {useMongoClient: true});
 mongoose.connection.on('error', function(err) {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.'+ err);
   process.exit(1);
@@ -90,40 +90,40 @@ Handlebars.registerHelper("difference", function(lvalue, operator, cvalue, opera
     cvalue = parseFloat(cvalue);
     rvalue = parseFloat(rvalue);
 
-    value = (lvalue - cvalue + rvalue)
-    value = formatNumber(value)
-  return value
+    value = (lvalue - cvalue + rvalue);
+    value = formatNumber(value);
+  return value;
 });
 
 Handlebars.registerHelper("premium", function(lvalue, operator, rvalue, options) {
     lvalue = parseFloat(lvalue);
     rvalue = parseFloat(rvalue);
 
-    value = (lvalue - rvalue)
-    value = formatNumber(value)
-  return value
+    value = (lvalue - rvalue);
+    value = formatNumber(value);
+  return value;
 });
 
 Handlebars.registerHelper("fnumber", function(value, options) {
     value = parseFloat(value);
 
-    value = formatNumber(value)
-  return value
+    value = formatNumber(value);
+  return value;
 });
 
 Handlebars.registerHelper("pct", function(value, options) {
   value = formatNumberPct(parseFloat(value) * 100);
 
-  return value
+  return value;
 });
 Handlebars.registerHelper("gpct", function(value, options) {
   value = formatNumberPct(99 - parseFloat(value) * 100);
 
-  return value
+  return value;
 });
 
 Handlebars.registerHelper('fCurrency', function(value) {
-  		value = Math.round(value)
+  		value = Math.round(value);
     return value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 });
 
